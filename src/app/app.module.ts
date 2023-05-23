@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
     RegisterComponent,
     FooterComponent,
     NavbarComponent,
-    HomePageComponent
+    HomePageComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

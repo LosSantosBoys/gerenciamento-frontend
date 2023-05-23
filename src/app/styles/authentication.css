@@ -12,13 +12,13 @@
 
 .container form {
   border-radius: 5px;
-  max-width: 500px;
+  max-width: 520px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 55px 40px 55px;
+  padding: 40px 60px;
   background-color: var(--background);
 }
 
@@ -92,4 +92,5 @@
 .container form .forgot_password a {
   text-decoration: none;
   color: var(--white);
+  cursor: pointer;
 }

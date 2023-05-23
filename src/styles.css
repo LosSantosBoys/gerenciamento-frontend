@@ -9,6 +9,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 :root {
@@ -27,8 +28,4 @@
   /* placeholder */
   --grey: #8C8C8C;
   --bg_input: #333333;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
 }
