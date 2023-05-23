@@ -14,6 +14,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgot-password.component';
+import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgo
     FooterComponent,
     NavbarComponent,
     HomePageComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,
