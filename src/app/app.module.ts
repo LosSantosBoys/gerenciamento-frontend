@@ -21,6 +21,8 @@ import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { SessionItemComponent } from './components/session-item/session-item.component';
 import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
+import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
+import { MovieTicketPageComponent } from './pages/user/movie-ticket-page/movie-ticket-page.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-asid
     SessionsComponent,
     SessionItemComponent,
     AsideNavComponent,
-    BtnOpenAsideComponent
+    BtnOpenAsideComponent,
+    MoviePageComponent,
+    MovieTicketPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,4 +55,5 @@ import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-asid
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
