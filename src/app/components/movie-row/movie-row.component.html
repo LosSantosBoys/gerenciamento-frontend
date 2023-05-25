@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="row-header">
+    <h2>{{ rowTitle }}</h2>
+    <a href="{{ address }}" class="row-button">VER TODOS</a>
+  </div>
+  <div class="row-content">
+    <div class="movie-card" *ngFor="let movie of movies">
+      <a href="{{ movie.url }}" class="">
+        <div class="movie-card-image">
+          <img src="{{ movie.imageUrl }}" alt="{{ movie.title }}" />
+          <div class="movie-card-overlay"></div>
+          <div class="movie-card-text">
+            <div class="rounded">
+              <h4>{{ movie.date }}</h4>
+            </div>
+            <h3>{{ movie.title }}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

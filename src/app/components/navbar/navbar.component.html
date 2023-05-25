@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <div class="logo">
+    <img src="/assets/images/logo.svg" alt="logo" />
+  </div>
+  <button mat-button [matMenuTriggerFor]="catalogo">
+    <span>CATÁLOGO</span>
+    <mat-icon>expand_more</mat-icon>
+  </button>
+  <mat-menu #catalogo="matMenu">
+    <button mat-menu-item>EM CARTAZ</button>
+    <button mat-menu-item>EM ESTREIA</button>
+    <button mat-menu-item>EM BREVE</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="produtos">
+    <span>PRODUTOS</span> <mat-icon>expand_more</mat-icon>
+  </button>
+  <mat-menu #produtos="matMenu">
+    <button mat-menu-item>Salgados</button>
+    <button mat-menu-item>Doces</button>
+    <button mat-menu-item>Líquidos</button>
+  </mat-menu>
+  <span class="spacer"></span>
+  <button mat-icon-button aria-label="Search">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-stroked-button color="primary">
+    <span>Entrar</span>
+  </button>
+</mat-toolbar>

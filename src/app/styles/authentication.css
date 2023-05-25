@@ -1,0 +1,96 @@
+.container {
+  height: 100vh;
+  display: flex;
+  padding: 0 30px;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/images/banners/bg_movies.png);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.container form {
+  border-radius: 5px;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  background-color: var(--background);
+}
+
+/* LOGO */
+.container form .logo {
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 160px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.container form .logo img {
+  width: 33px;
+  height: 33px;
+}
+
+/* INPUT */
+.container form input {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--grey);
+  background-color: var(--bg_input);
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 55px;
+  margin-top: 15px;
+  outline: none;
+  padding: 0 30px;
+}
+
+/* BUTTON */
+.container form button {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--white);
+  background-color: var(--principal_red);
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 55px;
+  margin-top: 25px;
+  outline: none;
+  transition: all .2s ease;
+}
+
+.container form button:hover {
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+/* FORGOT PASSWORD */
+.container form .forgot_password {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--grey);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.container form .forgot_password a {
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
+}

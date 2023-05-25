@@ -1,0 +1,15 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  background-color: #252525;
+}
+
+mat-icon {
+  color: white;
+}
+
+span {
+  color: white;
+}

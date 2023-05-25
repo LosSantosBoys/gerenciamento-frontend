@@ -1,0 +1,20 @@
+<div class="container" id="ctn">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main class="content">
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Sessões</h2>
+      </div>
+      <button type="button" id="btn_add_new_session">
+        <img src="../../assets/icons/plus.png" alt="icone de mais" title="mais">
+        Adicionar sessão
+      </button>
+    </div>
+    <ul class="row">
+      <li *ngFor="let session of sessions">
+        <app-session-item [session]="session"></app-session-item>
+      </li>
+    </ul>
+  </main>
+</div>
