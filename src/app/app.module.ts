@@ -17,6 +17,8 @@ import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgo
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { SessionItemComponent } from './components/session-item/session-item.component';
+import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
+import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SessionItemComponent } from './components/session-item/session-item.com
     ForgotPasswordComponent,
     LoginAdminComponent,
     SessionsComponent,
-    SessionItemComponent
+    SessionItemComponent,
+    AsideNavComponent,
+    BtnOpenAsideComponent
   ],
   imports: [
     BrowserModule,

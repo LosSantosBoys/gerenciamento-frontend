@@ -8,9 +8,11 @@ import { SessionItem } from 'src/app/components/session-item/session-item.compon
 })
 export class SessionsComponent {
   sessions: SessionItem[]
+  asideStatus: boolean
 
   constructor() {
     this.sessions = this.generateSessions()
+    this.asideStatus = false
   }
 
   generateSessions(): SessionItem[] {
@@ -25,5 +27,14 @@ export class SessionsComponent {
     }
 
     return sessions
+  }
+
+  handleOpenAside(): void {
+    this.asideStatus = true
+    console.log(this.asideStatus);
+  }
+
+  handleCloseAside(): void {
+    this.asideStatus = false
   }
 }
