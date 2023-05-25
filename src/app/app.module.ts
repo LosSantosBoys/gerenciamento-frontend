@@ -11,10 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
 import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgot-password.component';
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MovieRowComponent } from './components/movie-row/movie-row.component';
+import { BannerSliderComponent } from './components/banner-slider/banner-slider.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.compo
     HomePageComponent,
     ForgotPasswordComponent,
     LoginAdminComponent
+    MovieRowComponent,
+    BannerSliderComponent
   ],
   imports: [
     BrowserModule,
