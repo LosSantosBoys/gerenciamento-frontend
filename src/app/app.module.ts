@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCommonModule } from '@angular/material/core';
+import { MovieRowComponent } from './components/movie-row/movie-row.component';
+import { BannerSliderComponent } from './components/banner-slider/banner-slider.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MatCommonModule } from '@angular/material/core';
     RegisterPageComponent,
     FooterComponent,
     NavbarComponent,
-    HomePageComponent
+    HomePageComponent,
+    MovieRowComponent,
+    BannerSliderComponent
   ],
   imports: [
     BrowserModule,

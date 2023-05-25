@@ -1,0 +1,128 @@
+.row {
+  margin-bottom: 20px;
+}
+
+.row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.row-header h2 {
+  font-size: 32px;
+  color: white;
+  font-weight: 500;
+}
+
+.row-button {
+  padding: 14px 20px;
+  background-color: #e31919;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+.row-content {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.movie-card {
+  width: calc(33.33% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  height: 400px;
+  width: 265px;
+  border-radius: 16px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.movie-card:last-child {
+  margin-right: 0;
+}
+
+.movie-card-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.movie-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.movie-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.movie-card-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.rounded {
+  border-radius: 30px;
+  color: white;
+  padding: 3px 12px 3px 12px;
+  text-align: center;
+  border: solid 2px white;
+  width: max-content;
+}
+
+.movie-card-text h4 {
+  font-size: 14px;
+}
+
+.movie-card-text h3 {
+  font-size: 16px;
+}
+
+.movie-card-text h4,
+.movie-card-text h3 {
+  margin: 0;
+  text-align: left;
+}
+
+.movie-card-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  border-radius: 16px;
+}
