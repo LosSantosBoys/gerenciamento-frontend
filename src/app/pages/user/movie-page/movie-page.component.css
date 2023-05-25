@@ -1,0 +1,41 @@
+.movie-banner {
+  height: 360px;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.spacing {
+  margin: 30px 40px;
+  color: white;
+}
+
+.spacing > *:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+p,
+.table-title,
+.table-content {
+  font-size: 20px;
+}
+
+tr {
+  margin-bottom: 5px;
+}
+
+td {
+  padding-right: 15px;
+}
+
+.table-title {
+  font-weight: bold;
+}
