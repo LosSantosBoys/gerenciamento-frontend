@@ -1,0 +1,23 @@
+#btn_open_aside {
+  border: none;
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: none;
+  margin-right: 10px;
+  margin-top: 3px;
+  padding: 0;
+}
+
+#btn_open_aside img {
+  width: 100%;
+}
+
+
+/* MOBILE */
+@media(max-width: 800px) {
+  #btn_open_aside {
+    display: block;
+  }
+}
