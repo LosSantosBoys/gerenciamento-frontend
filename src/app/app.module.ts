@@ -16,6 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgot-password.component';
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
+import { SessionItemComponent } from './components/session-item/session-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SessionsComponent } from './pages/admin/sessions/sessions.component';
     HomePageComponent,
     ForgotPasswordComponent,
     LoginAdminComponent,
-    SessionsComponent
+    SessionsComponent,
+    SessionItemComponent
   ],
   imports: [
     BrowserModule,
