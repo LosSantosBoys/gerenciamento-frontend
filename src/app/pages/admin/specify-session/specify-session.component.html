@@ -1,0 +1,59 @@
+<div class="container" id="ctn">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main>
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Percy Jackson</h2>
+      </div>
+    </div>
+    <div class="info_card_row">
+      <app-card-info-specify-session [card]="cardsInfoSpecifySession[0]"></app-card-info-specify-session>
+      <app-card-info-specify-session [card]="cardsInfoSpecifySession[1]"></app-card-info-specify-session>
+      <app-card-info-specify-session [card]="cardsInfoSpecifySession[2]"></app-card-info-specify-session>
+    </div>
+    <div class="room">
+      <h3>Assentos:</h3>
+      <div class="accents">
+        <div class="letters">
+          <p>i</p>
+          <p>h</p>
+          <p>g</p>
+          <p>f</p>
+          <p>e</p>
+          <p>d</p>
+          <p>c</p>
+          <p>b</p>
+          <p>a</p>
+        </div>
+        <div class="chairs_row">
+          <div class="chairs" *ngFor="let chair_row_item of chair_row">
+            <li *ngFor="let chair of chair_row_item.chairs">
+              <button [className]="chair.type"></button>
+            </li>
+          </div>
+        </div>
+      </div>
+      <div class="display">
+        <p>tela</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button">
+        Novo ingresso
+      </button>
+      <button type="button">
+        <img src="../../assets/icons/engine.png" alt="icone de uma engrenagem" title="engrenagem">
+        <p>Alterar sessão</p>
+      </button>
+      <button type="button">
+        <img src="../../assets/icons/locker.png" alt="icone de um cadeado" title="cadecado">
+        <p>Restringir assento</p>
+      </button>
+      <button type="button">
+        <img src="../../assets/icons/close.png" alt="icone de um x" title="x">
+        <p>Excluir sessão</p>
+      </button>
+    </div>
+  </main>
+</div>

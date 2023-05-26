@@ -21,6 +21,7 @@ export class SessionsComponent {
     let total = 20
     for (let i = 0; i < total; i++) {
       sessions[i] = {
+        id: `Session: ${i + 1}`,
         title: `Sessão ${i + 1}-${total}`,
         room: i + 1
       }
@@ -31,7 +32,6 @@ export class SessionsComponent {
 
   handleOpenAside(): void {
     this.asideStatus = true
-    console.log(this.asideStatus);
   }
 
   handleCloseAside(): void {
