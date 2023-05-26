@@ -1,0 +1,225 @@
+<div class="container" id="ctn">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main>
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Percy Jackson</h2>
+      </div>
+    </div>
+    <div class="info_card_row">
+      <div class="info_card_item">
+        <div class="icon_container">
+          <div class="border_icon">
+            <img src="../../assets/icons/cinema.png" alt="icone de uma sala de cinema" title="sala de cinema">
+          </div>
+        </div>
+        <div class="session_content">
+          <p class="title">Sala</p>
+          <p class="subtitle">1</p>
+        </div>
+      </div>
+      <div class="info_card_item">
+        <div class="icon_container">
+          <div class="border_icon">
+            <img src="../../assets/icons/time.png" alt="icone de hora" title="hora">
+          </div>
+        </div>
+        <div class="session_content">
+          <p class="title">Horário</p>
+          <p class="subtitle">10:00</p>
+        </div>
+      </div>
+      <div class="info_card_item">
+        <div class="icon_container">
+          <div class="border_icon">
+            <img src="../../assets/icons/accents.png" alt="icone de assento" title="assento">
+          </div>
+        </div>
+        <div class="session_content">
+          <p class="title">Assentos Disponível</p>
+          <p class="subtitle">47</p>
+        </div>
+      </div>
+    </div>
+    <div class="room">
+      <h3>Assentos:</h3>
+      <div class="accents">
+        <div class="letters">
+          <p>i</p>
+          <p>h</p>
+          <p>g</p>
+          <p>f</p>
+          <p>e</p>
+          <p>d</p>
+          <p>c</p>
+          <p>b</p>
+          <p>a</p>
+        </div>
+        <div class="chairs_row">
+          <div class="chairs">
+            <!-- i -->
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <!-- h -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <!-- g -->
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <!-- f -->
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <!-- e -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <!-- d -->
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <!-- c -->
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <!-- b -->
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <!-- a -->
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+          </div>
+          <div class="chairs">
+            <!-- i -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <!-- h -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <!-- g -->
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="selected"></button>
+            <button class="selected"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <!-- f -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <!-- e -->
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <!-- d -->
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <!-- c -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <!-- b -->
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <button class="deselected"></button>
+            <!-- a -->
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+            <button class="unavailabel"></button>
+            <button class="deselected"></button>
+          </div>
+          <div class="chairs">
+            <!-- i -->
+            <button type="button" class="unavailabel"></button>
+            <button type="button" class="unavailabel"></button>
+            <!-- h -->
+            <button type="button" class="unavailabel"></button>
+            <button type="button" class="deselected"></button>
+            <!-- g -->
+            <button type="button" class="unavailabel"></button>
+            <button type="button" class="deselected"></button>
+            <!-- f -->
+            <button type="button" class="unavailabel"></button>
+            <button type="button" class="deselected"></button>
+            <!-- e -->
+            <button type="button" class="unavailabel"></button>
+            <button type="button" class="unavailabel"></button>
+            <!-- d -->
+            <button type="button" class="deselected"></button>
+            <button type="button" class="deselected"></button>
+            <!-- c -->
+            <button type="button" class="unavailabel"></button>
+            <button type="button" class="deselected"></button>
+            <!-- b -->
+            <button type="button" class="deselected"></button>
+            <button type="button" class="deselected"></button>
+            <!-- a -->
+            <button type="button" class="deselected"></button>
+            <button type="button" class="deselected"></button>
+          </div>
+        </div>
+      </div>
+      <div class="display">
+        <p>tela</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button">
+        Novo ingresso
+      </button>
+      <button type="button">
+        <img src="../../assets/icons/engine.png" alt="icone de uma engrenagem" title="engrenagem">
+        <p>Alterar sessão</p>
+      </button>
+      <button type="button">
+        <img src="../../assets/icons/locker.png" alt="icone de um cadeado" title="cadecado">
+        <p>Restringir assento</p>
+      </button>
+      <button type="button">
+        <img src="../../assets/icons/close.png" alt="icone de um x" title="x">
+        <p>Excluir sessão</p>
+      </button>
+    </div>
+  </main>
+</div>

@@ -21,6 +21,7 @@ import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { SessionItemComponent } from './components/session-item/session-item.component';
 import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
+import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-asid
     SessionsComponent,
     SessionItemComponent,
     AsideNavComponent,
-    BtnOpenAsideComponent
+    BtnOpenAsideComponent,
+    SpecifySessionComponent
   ],
   imports: [
     BrowserModule,

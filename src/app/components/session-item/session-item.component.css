@@ -7,7 +7,7 @@
   background-color: var(--bg_session_item);
   padding: 20px;
   transition: all .1s ease;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 .session_item:hover {
@@ -15,7 +15,7 @@
   border-radius: 5px;
   display: flex;
   gap: 10px;
-  filter: brightness(0.93);
+  filter: brightness(0.95);
   padding: 20px;
   transition: all .1s ease;
 }
