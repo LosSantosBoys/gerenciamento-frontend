@@ -2,53 +2,29 @@
 
 <div class="spacing">
   <div class="content">
-    <h3>Movie name</h3>
+    <h3>{{ title }}</h3>
     <img class="movie-banner" src="/assets/images/banners/star_wars.jpg" alt="Movie banner" />
   </div>
   <div class="content">
     <h4>Leia a sinopse</h4>
-    <p>
-      O mal não dura a eternidade sem uma pequena ajuda. Nesta moderna história de monstros sobre o leal servo de Drácula, Nicholas Hoult (Mad Max: Estrada da Fúria, franquia X-Men) estrela como Renfield, o torturado ajudante do chefe mais narcisista da história, Drácula (vencedor do Oscar® Nicolas
-      Cage). Renfield é forçado a obter a presa de seu mestre e cumprir todas as suas ordens, não importa o quão degradado seja. Mas agora, após séculos de servidão, Renfield está pronto para ver se há uma vida fora da sombra do Príncipe das Trevas. Se ao menos ele pudesse descobrir como acabar com
-      sua co-dependência.
-    </p>
+    <p>{{ synopsis }}</p>
     <table>
-      <tr>
-        <td class="table-title">Gênero</td>
-        <td class="table-content">Horror</td>
-      </tr>
-
-      <tr>
-        <td class="table-title">Duração</td>
-        <td class="table-content">95 min.</td>
-      </tr>
-
-      <tr>
-        <td class="table-title">Classificação</td>
-        <td class="table-content">18 anos</td>
+      <tr *ngFor="let entry of details.entries()">
+        <td class="table-title">{{ entry[0] }}</td>
+        <td class="table-content">{{ entry[1] }}</td>
       </tr>
     </table>
   </div>
-  <div class="content">
+  <div ng-hide="youtubeUrl == null" class="content">
     <h4>Assista ao trailer</h4>
-    <iframe width="100%" height="760" src="https://www.youtube.com/embed/6LmO6rmDW08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="100%" height="760" src="https://www.youtube.com/embed/{{ youtubeUrl }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <div class="content">
     <h4>Créditos e distribuição</h4>
     <table>
-      <tr>
-        <td class="table-title">Gênero</td>
-        <td class="table-content">Horror</td>
-      </tr>
-
-      <tr>
-        <td class="table-title">Duração</td>
-        <td class="table-content">95 min.</td>
-      </tr>
-
-      <tr>
-        <td class="table-title">Classificação</td>
-        <td class="table-content">18 anos</td>
+      <tr *ngFor="let entry of credits.entries()">
+        <td class="table-title">{{ entry[0] }}</td>
+        <td class="table-content">{{ entry[1] }}</td>
       </tr>
     </table>
   </div>
