@@ -8,39 +8,9 @@
       </div>
     </div>
     <div class="info_card_row">
-      <div class="info_card_item">
-        <div class="icon_container">
-          <div class="border_icon">
-            <img src="../../assets/icons/cinema.png" alt="icone de uma sala de cinema" title="sala de cinema">
-          </div>
-        </div>
-        <div class="session_content">
-          <p class="title">Sala</p>
-          <p class="subtitle">1</p>
-        </div>
-      </div>
-      <div class="info_card_item">
-        <div class="icon_container">
-          <div class="border_icon">
-            <img src="../../assets/icons/time.png" alt="icone de hora" title="hora">
-          </div>
-        </div>
-        <div class="session_content">
-          <p class="title">Horário</p>
-          <p class="subtitle">10:00</p>
-        </div>
-      </div>
-      <div class="info_card_item">
-        <div class="icon_container">
-          <div class="border_icon">
-            <img src="../../assets/icons/accents.png" alt="icone de assento" title="assento">
-          </div>
-        </div>
-        <div class="session_content">
-          <p class="title">Assentos Disponível</p>
-          <p class="subtitle">47</p>
-        </div>
-      </div>
+      <app-card-info-specify-session [card]="cardsInfoSpecifySession[0]"></app-card-info-specify-session>
+      <app-card-info-specify-session [card]="cardsInfoSpecifySession[1]"></app-card-info-specify-session>
+      <app-card-info-specify-session [card]="cardsInfoSpecifySession[2]"></app-card-info-specify-session>
     </div>
     <div class="room">
       <h3>Assentos:</h3>

@@ -22,6 +22,7 @@ import { SessionItemComponent } from './components/session-item/session-item.com
 import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
+import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SpecifySessionComponent } from './pages/admin/specify-session/specify-s
     SessionItemComponent,
     AsideNavComponent,
     BtnOpenAsideComponent,
-    SpecifySessionComponent
+    SpecifySessionComponent,
+    CardInfoSpecifySessionComponent
   ],
   imports: [
     BrowserModule,
