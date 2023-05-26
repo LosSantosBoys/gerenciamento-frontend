@@ -29,7 +29,8 @@
         <div class="chairs_row">
           <div class="chairs" *ngFor="let chair_row_item of chair_row">
             <li *ngFor="let chair of chair_row_item.chairs">
-              <button [className]="chair.type"></button>
+              <button [className]="chair.type" [disabled]="chair.type === 'unavailabel'"
+                (click)="handleToggleSelectRoom(chair)"></button>
             </li>
           </div>
         </div>

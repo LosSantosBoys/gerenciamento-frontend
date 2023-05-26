@@ -31,6 +31,50 @@ export class SpecifySessionComponent {
     this.chair_row = this.generateChairRow()
   }
 
+  // Room
+  handleToggleSelectRoom(chair: Chair): void {
+    let chairNumber = chair.number
+
+    // find row of chair
+    if (chairNumber === 1 || chairNumber === 2) {
+      this.chair_row[0].chairs.map(chair_item => {
+        // find chair
+        if (chair_item.letter === chair.letter && chair_item.number === chairNumber) {
+          // revert selection
+          if (chair_item.type === 'deselected') {
+            chair_item.type = 'selected'
+          } else {
+            chair_item.type = 'deselected'
+          }
+        }
+      })
+    } else if (chairNumber >= 3 && chairNumber <= 10) {
+      this.chair_row[1].chairs.map(chair_item => {
+        // find chair
+        if (chair_item.letter === chair.letter && chair_item.number === chairNumber) {
+          // revert selection
+          if (chair_item.type === 'deselected') {
+            chair_item.type = 'selected'
+          } else {
+            chair_item.type = 'deselected'
+          }
+        }
+      })
+    } else {
+      this.chair_row[2].chairs.map(chair_item => {
+        // find chair
+        if (chair_item.letter === chair.letter && chair_item.number === chairNumber) {
+          // revert selection
+          if (chair_item.type === 'deselected') {
+            chair_item.type = 'selected'
+          } else {
+            chair_item.type = 'deselected'
+          }
+        }
+      })
+    }
+  }
+
   generateChairRow(): ChairRow[] {
     let chairRow: ChairRow[] = []
 
