@@ -23,6 +23,8 @@ import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
 import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
 import { MovieTicketPageComponent } from './pages/user/movie-ticket-page/movie-ticket-page.component';
+import { ApiService } from './service/api-service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,8 +53,11 @@ import { MovieTicketPageComponent } from './pages/user/movie-ticket-page/movie-t
     MatButtonModule,
     MatMenuModule,
     MatCommonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
 
