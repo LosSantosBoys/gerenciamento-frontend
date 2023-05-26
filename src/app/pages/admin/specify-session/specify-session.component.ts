@@ -32,47 +32,31 @@ export class SpecifySessionComponent {
   }
 
   // Room
-  handleToggleSelectRoom(chair: Chair): void {
-    let chairNumber = chair.number
+  handleToggleSelectRoom(selectedChair: Chair): void {
+    let chairNumber = selectedChair.number
 
     // find row of chair
     if (chairNumber === 1 || chairNumber === 2) {
-      this.chair_row[0].chairs.map(chair_item => {
-        // find chair
-        if (chair_item.letter === chair.letter && chair_item.number === chairNumber) {
-          // revert selection
-          if (chair_item.type === 'deselected') {
-            chair_item.type = 'selected'
-          } else {
-            chair_item.type = 'deselected'
-          }
-        }
-      })
+      this.selectChair(this.chair_row[0], selectedChair)
     } else if (chairNumber >= 3 && chairNumber <= 10) {
-      this.chair_row[1].chairs.map(chair_item => {
-        // find chair
-        if (chair_item.letter === chair.letter && chair_item.number === chairNumber) {
-          // revert selection
-          if (chair_item.type === 'deselected') {
-            chair_item.type = 'selected'
-          } else {
-            chair_item.type = 'deselected'
-          }
-        }
-      })
+      this.selectChair(this.chair_row[1], selectedChair)
     } else {
-      this.chair_row[2].chairs.map(chair_item => {
-        // find chair
-        if (chair_item.letter === chair.letter && chair_item.number === chairNumber) {
-          // revert selection
-          if (chair_item.type === 'deselected') {
-            chair_item.type = 'selected'
-          } else {
-            chair_item.type = 'deselected'
-          }
-        }
-      })
+      this.selectChair(this.chair_row[2], selectedChair)
     }
+  }
+
+  selectChair(chairRow: ChairRow, selectedChair: Chair): void {
+    chairRow.chairs.map(chair_item => {
+      // find chair
+      if (chair_item.letter === selectedChair.letter && chair_item.number === selectedChair.number) {
+        // revert selection
+        if (chair_item.type === 'deselected') {
+          chair_item.type = 'selected'
+        } else {
+          chair_item.type = 'deselected'
+        }
+      }
+    })
   }
 
   generateChairRow(): ChairRow[] {
@@ -432,12 +416,12 @@ export class SpecifySessionComponent {
         },
         {
           letter: 'G',
-          type: 'selected',
+          type: 'deselected',
           number: 6
         },
         {
           letter: 'G',
-          type: 'selected',
+          type: 'deselected',
           number: 7
         },
         {
