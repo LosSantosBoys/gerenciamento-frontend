@@ -25,6 +25,7 @@ import { MoviePageComponent } from './pages/user/movie-page/movie-page.component
 import { MovieTicketPageComponent } from './pages/user/movie-ticket-page/movie-ticket-page.component';
 import { ApiService } from './service/api-service';
 import { HttpClientModule } from '@angular/common/http';
+import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     AsideNavComponent,
     BtnOpenAsideComponent,
     MoviePageComponent,
-    MovieTicketPageComponent
+    MovieTicketPageComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
