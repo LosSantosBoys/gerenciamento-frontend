@@ -535,7 +535,7 @@ export class SpecifySessionComponent {
           number: 11
         },
         {
-          letter: 'C',
+          letter: 'B',
           type: 'deselected',
           number: 12
         },
