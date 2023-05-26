@@ -145,6 +145,10 @@
   border-radius: 2px;
 }
 
+.container main .room .display p {
+  margin: 0;
+}
+
 /* ACTIONS */
 .container main .actions {
   display: flex;
@@ -167,11 +171,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   color: var(--white);
   border: 1px solid var(--second_red);
   height: 40px;
   cursor: pointer;
+}
+
+.container main .actions button p {
+  margin: 0;
 }
 
 .container main .actions button img {
