@@ -71,6 +71,22 @@
   justify-content: center;
 }
 
+.container main .room .accents .letters p {
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin-right: 10px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
 .container main .room .accents .chairs_row {
   display: flex;
   justify-content: space-between;
@@ -82,6 +98,13 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+}
+
+.container main .room .accents .chairs_row .chairs li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 30px;
 }
 
 .container main .room .accents .chairs_row .chairs:nth-child(2) {
