@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/user/auth/register/register.component
 import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgot-password.component';
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
+import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { 'path': 'forgot-password', component: ForgotPasswordComponent },
   { 'path': 'admin/login', component: LoginAdminComponent },
   { 'path': 'admin/sessions', component: SessionsComponent },
+  { 'path': 'movies/:id', component: MoviePageComponent, }
   { 'path': 'admin/session/:id', component: SpecifySessionComponent },
   { 'path': '', component: HomePageComponent, }
 ];

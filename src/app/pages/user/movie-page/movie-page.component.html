@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="spacing">
+  <div class="content">
+    <h3>{{ title }}</h3>
+    <img *ngIf="banner !== undefined" class="movie-banner" src="{{ banner }}" alt="Movie banner" />
+  </div>
+  <div class="content">
+    <h4>Leia a sinopse</h4>
+    <p>{{ synopsis }}</p>
+    <table>
+      <tr *ngFor="let detail of details | keyvalue">
+        <td class="table-title">{{ detail.key }}</td>
+        <td class="table-content">{{ detail.value }}</td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="youtubeUrl !== undefined" class="content">
+    <h4>Assista ao trailer</h4>
+    <iframe width="100%" height="760" [src]="'https://www.youtube.com/embed/' + youtubeUrl | safe : 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <div class="content">
+    <h4>Créditos e distribuição</h4>
+    <table>
+      <tr *ngFor="let credit of credits | keyvalue">
+        <td class="table-title">{{ credit.key }}</td>
+        <td class="table-content">{{ credit.value }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<app-footer></app-footer>

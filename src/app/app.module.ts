@@ -21,6 +21,10 @@ import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { SessionItemComponent } from './components/session-item/session-item.component';
 import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
+import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
+import { ApiService } from './service/api-service';
+import { HttpClientModule } from '@angular/common/http';
+import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
 
@@ -39,6 +43,8 @@ import { CardInfoSpecifySessionComponent } from './components/card-info-specify-
     SessionItemComponent,
     AsideNavComponent,
     BtnOpenAsideComponent,
+    MoviePageComponent,
+    SafePipe,
     SpecifySessionComponent,
     CardInfoSpecifySessionComponent
   ],
@@ -51,8 +57,12 @@ import { CardInfoSpecifySessionComponent } from './components/card-info-specify-
     MatButtonModule,
     MatMenuModule,
     MatCommonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    ApiService,
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
