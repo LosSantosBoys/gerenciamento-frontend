@@ -15,8 +15,9 @@ export class MoviePageComponent implements OnInit {
 
   title: string = 'Título do filme';
   synopsis: string = 'Sinopse';
+  banner?: string;
   details: Map<string, string> = new Map<string, string>();
-  youtubeUrl!: string;
+  youtubeUrl?: string;
   credits: Map<string, string> = new Map<string, string>();
 
   getDataFromApi(): void {
