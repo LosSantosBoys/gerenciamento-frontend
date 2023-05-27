@@ -3,15 +3,15 @@
 <div class="spacing">
   <div class="content">
     <h3>{{ title }}</h3>
-    <img ng-hide="banner == null" class="movie-banner" src="{{ banner }}" alt="Movie banner" />
+    <img ng-show="banner != null" class="movie-banner" src="{{ banner }}" alt="Movie banner" />
   </div>
   <div class="content">
     <h4>Leia a sinopse</h4>
     <p>{{ synopsis }}</p>
     <table>
-      <tr *ngFor="let entry of details.entries()">
-        <td class="table-title">{{ entry[0] }}</td>
-        <td class="table-content">{{ entry[1] }}</td>
+      <tr *ngFor="let detail of details | keyvalue">
+        <td class="table-title">{{ detail.key }}</td>
+        <td class="table-content">{{ detail.value }}</td>
       </tr>
     </table>
   </div>
@@ -22,9 +22,9 @@
   <div class="content">
     <h4>Créditos e distribuição</h4>
     <table>
-      <tr *ngFor="let entry of credits.entries()">
-        <td class="table-title">{{ entry[0] }}</td>
-        <td class="table-content">{{ entry[1] }}</td>
+      <tr *ngFor="let credit of credits | keyvalue">
+        <td class="table-title">{{ credit.key }}</td>
+        <td class="table-content">{{ credit.value }}</td>
       </tr>
     </table>
   </div>
