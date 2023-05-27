@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component, OnInit, } from '@angular/core';
 import { ApiService } from 'src/app/service/api-service';
 
 @Component({
@@ -6,12 +6,12 @@ import { ApiService } from 'src/app/service/api-service';
   templateUrl: './movie-page.component.html',
   styleUrls: ['./movie-page.component.css']
 })
-export class MoviePageComponent implements OnInit {
-  ngOnInit(): void {
+export class MoviePageComponent implements AfterContentInit {
+  constructor(private apiService: ApiService, private changeDetectorRef: ChangeDetectorRef) { }
+
+  ngAfterContentInit(): void {
     this.getDataFromApi();
   }
-
-  constructor(private apiService: ApiService) { }
 
   title: string = 'Título do filme';
   synopsis: string = 'Sinopse';
@@ -40,3 +40,5 @@ export class MoviePageComponent implements OnInit {
     });
   }
 }
+
+
