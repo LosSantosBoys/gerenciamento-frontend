@@ -22,10 +22,11 @@ import { SessionItemComponent } from './components/session-item/session-item.com
 import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
 import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
-import { MovieTicketPageComponent } from './pages/user/movie-ticket-page/movie-ticket-page.component';
 import { ApiService } from './service/api-service';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './components/safe-pipe/safe-pipe.component';
+import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
+import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,9 @@ import { SafePipe } from './components/safe-pipe/safe-pipe.component';
     AsideNavComponent,
     BtnOpenAsideComponent,
     MoviePageComponent,
-    MovieTicketPageComponent,
     SafePipe,
+    SpecifySessionComponent,
+    CardInfoSpecifySessionComponent
   ],
   imports: [
     BrowserModule,

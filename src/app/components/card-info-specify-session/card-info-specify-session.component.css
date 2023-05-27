@@ -1,5 +1,5 @@
-/* SESSIONS ITEM */
-.session_item {
+.info_card_item {
+  flex-grow: 2 !important;
   width: 100%;
   border-radius: 5px;
   display: flex;
@@ -7,21 +7,10 @@
   background-color: var(--bg_session_item);
   padding: 20px;
   transition: all .1s ease;
-  cursor: pointer;
 }
 
-.session_item:hover {
-  width: 100%;
-  border-radius: 5px;
-  display: flex;
-  gap: 10px;
-  filter: brightness(0.95);
-  padding: 20px;
-  transition: all .1s ease;
-}
-
-/* SESSIONS ICON */
-.session_item .icon_container {
+/* ICON CONTAINER */
+.info_card_item .icon_container {
   width: 50px;
   height: 50px;
   background-color: var(--second_red);
@@ -31,7 +20,7 @@
   align-items: center;
 }
 
-.session_item .icon_container .border_icon {
+.info_card_item .icon_container .border_icon {
   width: 30px;
   height: 30px;
   display: flex;
@@ -41,13 +30,13 @@
   border-radius: 50%;
 }
 
-.session_item .icon_container img {
+.info_card_item .icon_container img {
   width: 14px;
   height: 14px;
 }
 
 /* SESSIONS CONTENT */
-.session_item .session_content {
+.info_card_item .session_content {
   display: flex;
   flex-direction: column;
   align-items: self-start;
@@ -55,7 +44,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-.session_item .session_content .title {
+.info_card_item .session_content .title {
   color: var(--white);
   opacity: 0.9;
   font-weight: 500;
@@ -63,11 +52,11 @@
   margin: 0;
 }
 
-.session_item .session_content .room {
+.info_card_item .session_content .subtitle {
   color: var(--white);
   opacity: 0.6;
   font-weight: 400;
   font-size: 15px;
   margin: 0;
-  margin-top: 5px;
+  margin-top: 3px;
 }

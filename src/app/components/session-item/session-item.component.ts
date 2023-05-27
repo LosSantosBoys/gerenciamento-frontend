@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface SessionItem {
+  id: string
   title: string
   room: number
 }
@@ -13,4 +15,10 @@ export interface SessionItem {
 
 export class SessionItemComponent {
   @Input() session?: SessionItem;
+
+  constructor(private router: Router) { }
+
+  redirectToSpecifySession(): void {
+    this.router.navigate(['/admin/session', this.session?.id])
+  }
 }

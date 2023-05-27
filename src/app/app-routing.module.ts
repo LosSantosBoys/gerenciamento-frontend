@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './pages/user/auth/forgot-password/forgo
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 import { SessionsComponent } from './pages/admin/sessions/sessions.component';
 import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
+import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 
 const routes: Routes = [
   { 'path': 'login', component: LoginComponent },
@@ -14,8 +15,9 @@ const routes: Routes = [
   { 'path': 'forgot-password', component: ForgotPasswordComponent },
   { 'path': 'admin/login', component: LoginAdminComponent },
   { 'path': 'admin/sessions', component: SessionsComponent },
-  { 'path': '', component: HomePageComponent, },
   { 'path': 'movies/:id', component: MoviePageComponent, }
+  { 'path': 'admin/session/:id', component: SpecifySessionComponent },
+  { 'path': '', component: HomePageComponent, }
 ];
 
 @NgModule({
