@@ -3,7 +3,7 @@
 <div class="spacing">
   <div class="content">
     <h3>{{ title }}</h3>
-    <img class="movie-banner" src="/assets/images/banners/star_wars.jpg" alt="Movie banner" />
+    <img ng-hide="banner == null" class="movie-banner" src="{{ banner }}" alt="Movie banner" />
   </div>
   <div class="content">
     <h4>Leia a sinopse</h4>
