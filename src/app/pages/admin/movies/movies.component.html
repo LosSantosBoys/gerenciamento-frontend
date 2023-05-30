@@ -1,0 +1,50 @@
+<div class="container">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main class="content">
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Filmes</h2>
+      </div>
+      <button type="button">
+        Adicionar filme
+      </button>
+    </div>
+    <div class="search">
+      <img src="../../../../assets/icons/search.png" alt="icone de lupa" title="lupa">
+      <input type="text" placeholder="Pesquisa" [(ngModel)]="searchMovie" (input)="filterItems()">
+    </div>
+    <div class="data">
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Produtora</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+        <tr *ngFor="let movie of displayedItems">
+          <td>{{ movie.id }}</td>
+          <td>{{ movie.name }}</td>
+          <td>{{ movie.producer }}</td>
+          <td>{{ movie.status }}</td>
+          <td>{{ movie.date }}</td>
+          <td>
+            <button type="button">
+              <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
+            </button>
+            <button type="button">
+              <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}">restore_from_trash</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <p>{{ currentPage }} de {{ totalPages }}</p>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+    </div>
+  </main>
+</div>
