@@ -12,33 +12,35 @@
     </div>
     <div class="search">
       <img src="../../../../assets/icons/search.png" alt="icone de lupa" title="lupa">
-      <input type="text" placeholder="Pesquisa">
+      <input type="text" placeholder="Pesquisa" [(ngModel)]="searchMovie" (input)="filterItems()">
     </div>
-    <table>
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>Produtora</th>
-        <th>Status</th>
-        <th>Data</th>
-        <th>Ações</th>
-      </tr>
-      <tr *ngFor="let movie of displayedItems">
-        <td>{{ movie.id }}</td>
-        <td>{{ movie.name }}</td>
-        <td>{{ movie.producer }}</td>
-        <td>{{ movie.status }}</td>
-        <td>{{ movie.date }}</td>
-        <td>
-          <button type="button">
-            <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
-          </button>
-          <button type="button">
-            <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}">restore_from_trash</mat-icon>
-          </button>
-        </td>
-      </tr>
-    </table>
+    <div class="data">
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Produtora</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+        <tr *ngFor="let movie of displayedItems">
+          <td>{{ movie.id }}</td>
+          <td>{{ movie.name }}</td>
+          <td>{{ movie.producer }}</td>
+          <td>{{ movie.status }}</td>
+          <td>{{ movie.date }}</td>
+          <td>
+            <button type="button">
+              <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
+            </button>
+            <button type="button">
+              <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}">restore_from_trash</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
     <div class="pagination">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
       <p>{{ currentPage }} de {{ totalPages }}</p>

@@ -28,6 +28,7 @@ import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
 import { MoviesComponent } from './pages/admin/movies/movies.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { MoviesComponent } from './pages/admin/movies/movies.component';
     MatMenuModule,
     MatCommonModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     ApiService,

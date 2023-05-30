@@ -23,11 +23,32 @@ export class MoviesComponent {
   currentPage = 1
   totalPages = 0
 
+  searchMovie: string = ''
+
   constructor() {
     this.asideStatus = false
     this.movies = this.generateMovies()
     this.totalPages = Math.ceil(this.movies.length / this.pageSize)
     this.updateDisplayedItems()
+  }
+
+  // Filter
+  filterItems() {
+    if (!this.searchMovie) {
+      const startIndex = (this.currentPage - 1) * this.pageSize
+      const endIndex = startIndex + this.pageSize
+
+      this.displayedItems = [...this.movies.slice(startIndex, endIndex)]
+    } else {
+      const filteredItems = this.movies.filter(item =>
+        item.name.toLowerCase().includes(this.searchMovie.toLowerCase())
+      )
+
+      const startIndex = (this.currentPage - 1) * this.pageSize
+      const endIndex = startIndex + this.pageSize
+
+      this.displayedItems = [...filteredItems.slice(startIndex, endIndex)]
+    }
   }
 
   // Pagination
