@@ -1,0 +1,59 @@
+<div class="container">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main class="content">
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Filmes / adicionar filme</h2>
+      </div>
+    </div>
+    <form onsubmit="">
+      <div class="upload-container">
+        <label for="bannerImage" class="upload-label">
+          <div class="upload-preview" [style.background-image]="'url(' + selectedBannerImage + ')'">
+            <img *ngIf="!selectedBannerImage" alt="Preview" src="../../../../assets/icons/plus.png">
+          </div>
+          <input type="file" id="bannerImage" (change)="onBannerImageSelected($event)">
+        </label>
+        <label for="posterImage" class="upload-label">
+          <div class="upload-preview" [style.background-image]="'url(' + selectedPosterImage + ')'">
+            <img *ngIf="!selectedPosterImage" alt="Preview" src="../../../../assets/icons/plus.png">
+          </div>
+          <input type="file" id="posterImage" (change)="onPosterImageSelected($event)">
+        </label>
+      </div>
+      <div class="input_group">
+        <label for="name">Nome</label>
+        <input type="text" placeholder="Ex: O rei do show" id="name">
+      </div>
+      <div class="flex">
+        <div class="input_group">
+          <label for="classification">Classificação indicativa</label>
+          <input type="text" placeholder="16" id="classification">
+        </div>
+        <div class="input_group">
+          <label for="gender">Gênero</label>
+          <input type="text" placeholder="Ex: Comédia, Drama" id="gender">
+        </div>
+      </div>
+      <div class="flex">
+        <div class="input_group">
+          <label for="link">Link do trailer</label>
+          <input type="text" placeholder="Ex: https://www.youtube.com" id="link">
+        </div>
+        <div class="input_group">
+          <label for="gender">Adicionar filme em</label>
+          <input type="text" placeholder="Cartaz" id="gender">
+        </div>
+      </div>
+      <div class="input_group">
+        <label for="description">Descrição</label>
+        <textarea placeholder="Cartaz" id="description"></textarea>
+      </div>
+      <div class="actions">
+        <button type="button">Cancelar</button>
+        <button type="submit">Adiconar filme</button>
+      </div>
+    </form>
+  </main>
+</div>

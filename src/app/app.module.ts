@@ -29,6 +29,7 @@ import { SpecifySessionComponent } from './pages/admin/specify-session/specify-s
 import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
 import { MoviesComponent } from './pages/admin/movies/movies.component';
 import { FormsModule } from '@angular/forms';
+import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FormsModule } from '@angular/forms';
     SafePipe,
     SpecifySessionComponent,
     CardInfoSpecifySessionComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieCreateComponent
   ],
   imports: [
     BrowserModule,
