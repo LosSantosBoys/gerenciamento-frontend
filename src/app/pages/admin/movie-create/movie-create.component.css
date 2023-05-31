@@ -29,6 +29,7 @@
   font-family: 'Inter', sans-serif;
 }
 
+/* FORM */
 .container main form {
   width: 100%;
   border-radius: 10px;
@@ -36,6 +37,7 @@
   background-color: var(--bg_session_item);
 }
 
+/* UPLOAD */
 .container main form .upload-container {
   position: relative;
 }
@@ -107,6 +109,54 @@
   outline: none;
 }
 
+/* SELECT */
+.container main form .input_group .select_group {
+  position: relative;
+}
+
+.container main form .input_group .select_group img {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 14px;
+  height: 14px;
+  filter: brightness(0.8);
+}
+
+.container main form .input_group .select_group select {
+  background-color: var(--bg_input_dark);
+  width: 100%;
+  color: var(--grey);
+  font-size: 17px;
+  border: none;
+  margin-top: 5px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
+.container main form .input_group .select_group select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: var(--white);
+  pointer-events: none;
+}
+
+.container main form .input_group .select_group select::-ms-expand {
+  display: none;
+}
+
+.container main form .input_group .select_group select option {
+  color: var(--white);
+}
+
+/* TEXTAREA */
 .container main form .input_group textarea {
   width: 100%;
   min-height: 240px;
