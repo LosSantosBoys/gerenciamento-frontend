@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomePageComponent } from './pages/user/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCommonModule } from '@angular/material/core';
 import { MovieRowComponent } from './components/movie-row/movie-row.component';
@@ -30,6 +33,7 @@ import { CardInfoSpecifySessionComponent } from './components/card-info-specify-
 import { MoviesComponent } from './pages/admin/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component';
+import { ConfirmDeleteMovieComponent } from './components/dialogs/confirm-delete-movie/confirm-delete-movie.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,8 @@ import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.co
     SpecifySessionComponent,
     CardInfoSpecifySessionComponent,
     MoviesComponent,
-    MovieCreateComponent
+    MovieCreateComponent,
+    ConfirmDeleteMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,10 @@ import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.co
     MatMenuModule,
     MatCommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     ApiService,
