@@ -1,0 +1,49 @@
+.container {
+  background-color: var(--bg_input);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container h1 {
+  color: var(--white);
+}
+
+.container h1 span {
+  color: var(--principal_red);
+}
+
+.container p {
+  color: var(--white);
+  filter: brightness(0.9);
+  padding: 0 20px;
+}
+
+.container button {
+  color: var(--white);
+  border: 1px solid var(--bg_input);
+  padding: 0 20px;
+  background-color: var(--bg_input);
+  filter: brightness(1);
+}
+
+.container button:hover {
+  filter: brightness(0.9);
+  transition: all .2s ease;
+}
+
+.container button:first-child {
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 0 20px;
+  transition: all .2s ease;
+  background: transparent;
+  filter: brightness(0.7);
+}
+
+.container button:first-child:hover {
+  filter: brightness(1);
+  transition: all .2s ease;
+}

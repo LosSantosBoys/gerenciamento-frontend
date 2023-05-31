@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { MatDialog } from '@angular/material/dialog'
+import { ConfirmDeleteMovieComponent } from '../../../components/dialogs/confirm-delete-movie/confirm-delete-movie.component'
 
 interface Movie {
   id: number
@@ -25,11 +27,24 @@ export class MoviesComponent {
 
   searchMovie: string = ''
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.asideStatus = false
     this.movies = this.generateMovies()
     this.totalPages = Math.ceil(this.movies.length / this.pageSize)
     this.updateDisplayedItems()
+  }
+
+  // Dialog
+  openDialog(id: number): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteMovieComponent, {
+      data: { id },
+
+    })
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed')
+    //   this.animal = result;
+    // })
   }
 
   // Filter
