@@ -1,41 +1,39 @@
 <div [className]="cssClass">
   <button type="button" id="btn_close_aside" (click)="closeAside()">
-    <img src="../../../assets/icons/close.png" alt="icone de x que fecha a navegacao" title="fechar">
+    <img src="../../../assets/icons/close.png" alt="icone de x que fecha a navegacao" title="fechar" />
   </button>
   <aside>
     <div class="logo">
       <p>CineLumin</p>
-      <img src="../../../assets/icons/light.png" alt="lampada vermelha fazendo papel de letra no logotipo"
-        title="lampada vermelha fazendo papel de letra no logotipo">
+      <img src="../../../assets/icons/light.png" alt="lampada vermelha fazendo papel de letra no logotipo" title="lampada vermelha fazendo papel de letra no logotipo" />
     </div>
     <div class="flex">
       <nav>
         <ul>
-          <a routerLink="/admin">
-            <img src="../../../assets/icons/house.png" alt="icone de casa" title="casa">
+          <a [routerLinkActive]="'active'">
+            <img src="../../../assets/icons/house.png" alt="icone de casa" title="casa" />
             <li>Início</li>
           </a>
-          <a class="active" routerLink="/admin/sessions">
-            <img src="../../../assets/icons/calendar.png" alt="icone de casa" title="casa">
+          <a [routerLinkActive]="'active'" [routerLink]="['/admin/sessions']">
+            <img src="../../../assets/icons/calendar.png" alt="icone de casa" title="casa" />
             <li>Sessões</li>
           </a>
-          <a routerLink="/admin/movies">
-            <img src="../../../assets/icons/movie.png" alt="icone de casa" title="casa">
+          <a [routerLink]="['/admin/movies']" [routerLinkActive]="'active'">
+            <img src="../../../assets/icons/movie.png" alt="icone de casa" title="casa" />
             <li>Filmes</li>
           </a>
           <a>
-            <img src="../../../assets/icons/cart.png" alt="icone de casa" title="casa">
+            <img src="../../../assets/icons/cart.png" alt="icone de casa" title="casa" />
             <li>Produtos</li>
           </a>
           <a>
-            <img src="../../../assets/icons/arrow_left.png" alt="icone de casa" title="casa">
+            <img src="../../../assets/icons/arrow_left.png" alt="icone de casa" title="casa" />
             <li>Sair</li>
           </a>
         </ul>
       </nav>
       <div class="admin_profile">
-        <img src="../../../assets/images/profile_example.jpg" alt="imagem de perfil de uma mulher"
-          title="Janette Tompson">
+        <img src="../../../assets/images/profile_example.jpg" alt="imagem de perfil de uma mulher" title="Janette Tompson" />
         <div class="info">
           <p class="name">Janette Tompson</p>
           <p class="email">janette_tompson@gmail.com</p>
