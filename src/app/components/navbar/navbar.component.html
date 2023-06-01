@@ -11,9 +11,7 @@
     <button mat-menu-item>EM ESTREIA</button>
     <button mat-menu-item>EM BREVE</button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="produtos">
-    <span>PRODUTOS</span> <mat-icon>expand_more</mat-icon>
-  </button>
+  <button mat-button [matMenuTriggerFor]="produtos"><span>PRODUTOS</span> <mat-icon>expand_more</mat-icon></button>
   <mat-menu #produtos="matMenu">
     <button mat-menu-item>Salgados</button>
     <button mat-menu-item>Doces</button>
@@ -23,7 +21,7 @@
   <button mat-icon-button aria-label="Search">
     <mat-icon>search</mat-icon>
   </button>
-  <button mat-stroked-button color="primary">
+  <a href="/login" mat-stroked-button color="primary">
     <span>Entrar</span>
-  </button>
+  </a>
 </mat-toolbar>
