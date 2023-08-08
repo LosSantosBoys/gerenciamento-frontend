@@ -21,6 +21,7 @@ const routes: Routes = [
   { 'path': 'admin/session/:id', component: SpecifySessionComponent },
   { 'path': 'admin/movies', component: MoviesComponent },
   { 'path': 'admin/movie/create', component: MovieCreateComponent },
+  { 'path': 'admin', redirectTo: '/admin/login' },
   { 'path': '', component: HomePageComponent, }
 ];
 
