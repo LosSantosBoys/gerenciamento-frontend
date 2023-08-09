@@ -1,15 +1,16 @@
 <div class="container">
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="logo">
       <p>CineLumin</p>
-      <img src="../../../../assets/icons/light.png" alt="lampada vermelha fazendo papel de letra no logotipo"
-        title="lampada vermelha fazendo papel de letra no logotipo">
+      <img src="../../../../assets/icons/light.png" alt="lampada vermelha fazendo papel de letra no logotipo" title="lampada vermelha fazendo papel de letra no logotipo" />
     </div>
-    <input type="text" placeholder="Nome completo">
-    <input type="text" placeholder="CPF">
-    <input type="text" placeholder="Telefone">
-    <input type="email" placeholder="E-mail">
-    <input type="password" placeholder="Senha">
+    <input type="text" id="nome" name="nome" placeholder="Nome completo" [(ngModel)]="funcionario.nome" required />
+    <input type="text" id="cpf" mask="CPF_CNPJ" maxlength="14" name="cpf" placeholder="CPF" [(ngModel)]="funcionario.cpf" required />
+    <input type="email" id="email" name="email" placeholder="E-mail" [(ngModel)]="funcionario.email" required />
+    <input type="text" id="username" name="username" placeholder="Nome de usuário" [(ngModel)]="funcionario.username" required />
+    <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="funcionario.senha" required />
+    <input type="text" placeholder="Cargo" id="cargo" name="cargo" [(ngModel)]="funcionario.cargo" required />
+
     <button type="submit">Entrar</button>
     <p class="forgot_password">Já tem uma conta? <a routerLink="/login">Entrar</a></p>
   </form>
