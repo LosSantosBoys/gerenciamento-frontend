@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { FuncionarioRequest } from "../models/funcionario/funcionario-model";
+import { FilmeRequest } from "../models/filme/filme-model";
 
 @Injectable()
 export class ApiService {
@@ -15,5 +16,13 @@ export class ApiService {
 
     postData(body: FuncionarioRequest): Observable<any> {
         return this.http.post<any>(this.url + 'usuario/funcionario', body);
+    }
+
+    addMovie(body: FilmeRequest): Observable<any> {
+        return this.http.post<any>(this.url + '/filmes', body);
+    }
+
+    getMovie(title: string): Observable<any> {
+        return this.http.get<any>(this.url + '/filmes/' + title);
     }
 }
