@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FilmeRequest } from 'src/app/models/filme/filme-model';
+import { ApiService } from 'src/app/service/api-service';
 
 @Component({
   selector: 'app-movie-create',
@@ -11,9 +13,22 @@ export class MovieCreateComponent {
   selectedBannerImage: string | ArrayBuffer | null = null
   selectedPosterImage: string | ArrayBuffer | null = null
 
+  filme: FilmeRequest = {
+    titulo: '',
+    descricao: '',
+    duracao: '',
+    classificacaoIndicativa: '',
+  };
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.asideStatus = false
+  }
+
+  onSubmit(): void {
+    this.apiService.addMovie(this.filme).subscribe({
+      error: (error) => console.error(error),
+      complete: () => console.info('cadastrado')
+    });
   }
 
   onBannerImageSelected(event: Event) {

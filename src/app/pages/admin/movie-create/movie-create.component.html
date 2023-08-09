@@ -7,48 +7,48 @@
         <h2>Filmes / adicionar filme</h2>
       </div>
     </div>
-    <form onsubmit="">
+    <form (ngSubmit)="onSubmit()">
       <div class="upload-container">
         <label for="bannerImage" class="upload-label">
           <div class="upload-preview" [style.background-image]="'url(' + selectedBannerImage + ')'">
-            <img *ngIf="!selectedBannerImage" alt="Preview" src="../../../../assets/icons/plus.png">
+            <img *ngIf="!selectedBannerImage" alt="Preview" src="../../../../assets/icons/plus.png" />
           </div>
-          <input type="file" id="bannerImage" (change)="onBannerImageSelected($event)">
+          <input type="file" id="bannerImage" (change)="onBannerImageSelected($event)" />
         </label>
         <label for="posterImage" class="upload-label">
           <div class="upload-preview" [style.background-image]="'url(' + selectedPosterImage + ')'">
-            <img *ngIf="!selectedPosterImage" alt="Preview" src="../../../../assets/icons/plus.png">
+            <img *ngIf="!selectedPosterImage" alt="Preview" src="../../../../assets/icons/plus.png" />
           </div>
-          <input type="file" id="posterImage" (change)="onPosterImageSelected($event)">
+          <input type="file" id="posterImage" (change)="onPosterImageSelected($event)" />
         </label>
       </div>
       <div class="input_group">
         <label for="name">Nome</label>
-        <input type="text" placeholder="Ex: O rei do show" id="name">
+        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="filme.titulo" />
       </div>
       <div class="flex">
         <div class="input_group">
           <label for="classification">Classificação indicativa</label>
           <div class="select_group">
-            <select id="classification">
+            <select id="classification" name="classificacaoIndicativa" [(ngModel)]="filme.classificacaoIndicativa">
               <option value="free">Livre</option>
               <option value="10">10</option>
               <option value="12">12</option>
               <option value="12">16</option>
               <option value="12">18</option>
             </select>
-            <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo">
+            <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
           </div>
         </div>
         <div class="input_group">
           <label for="gender">Gênero</label>
-          <input type="text" placeholder="Ex: Comédia, Drama" id="gender">
+          <input type="text" placeholder="Ex: Comédia, Drama" id="gender" name="genero" />
         </div>
       </div>
       <div class="flex">
         <div class="input_group">
           <label for="link">Link do trailer</label>
-          <input type="text" placeholder="Ex: https://www.youtube.com" id="link">
+          <input type="text" placeholder="Ex: https://www.youtube.com" id="link" />
         </div>
         <div class="input_group">
           <label for="gender">Adicionar filme em</label>
@@ -60,13 +60,13 @@
               <option value="12">16</option>
               <option value="12">18</option>
             </select>
-            <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo">
+            <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
           </div>
         </div>
       </div>
       <div class="input_group">
         <label for="description">Descrição</label>
-        <textarea placeholder="Cartaz" id="description"></textarea>
+        <textarea placeholder="Cartaz" id="description" name="descricao" [(ngModel)]="filme.descricao"></textarea>
       </div>
       <div class="actions">
         <button type="button" routerLink="/admin/movies">Cancelar</button>
