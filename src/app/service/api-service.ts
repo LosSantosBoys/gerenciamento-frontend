@@ -19,7 +19,7 @@ export class ApiService {
     }
 
     addMovie(body: FilmeRequest): Observable<any> {
-        return this.http.post<any>(this.url + '/filmes', body);
+        return this.http.post<any>(this.url + 'filmes', body);
     }
 
     getMovie(title: string): Observable<any> {
