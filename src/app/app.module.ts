@@ -34,6 +34,8 @@ import { MoviesComponent } from './pages/admin/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component';
 import { ConfirmDeleteMovieComponent } from './components/dialogs/confirm-delete-movie/confirm-delete-movie.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarService } from './components/snackbar/snackbar';
 
 @NgModule({
   declarations: [
@@ -72,9 +74,11 @@ import { ConfirmDeleteMovieComponent } from './components/dialogs/confirm-delete
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule
   ],
   providers: [
     ApiService,
+    SnackbarService
   ],
   bootstrap: [AppComponent]
 })

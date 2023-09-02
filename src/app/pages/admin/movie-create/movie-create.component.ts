@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FilmeRequest } from 'src/app/models/filme/filme-model';
 import { ApiService } from 'src/app/service/api-service';
+import { SnackbarService } from 'src/app/components/snackbar/snackbar';
+import { NgForm } from '@angular/forms'; 
 
 @Component({
   selector: 'app-movie-create',
@@ -20,15 +22,31 @@ export class MovieCreateComponent {
     classificacaoIndicativa: '',
   };
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private snackbarService: SnackbarService,
+    ) {
     this.asideStatus = false
   }
 
-  onSubmit(): void {
-    this.apiService.addMovie(this.filme).subscribe({
-      error: (error) => console.error(error),
-      complete: () => console.info('cadastrado')
-    });
+  onSubmit(form: NgForm): void {
+    if (form.valid) {
+      this.apiService.addMovie(this.filme).subscribe({
+        error: (error) => this.snackbarService.falha("Erro"),
+        complete: () => this.snackbarService.sucesso("Cadastrado")
+      });
+    } else {
+      this.snackbarService.falha("Preencha todos os campos obrigatórios.");
+    }
+  }
+
+  isFormValid(): boolean {
+    return (
+      this.filme.titulo.trim() !== '' &&
+      this.filme.descricao.trim() !== '' &&
+      this.filme.duracao.trim() !== '' &&
+      this.filme.classificacaoIndicativa.trim() !== ''
+    );
   }
 
   onBannerImageSelected(event: Event) {

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { ConfirmDeleteMovieComponent } from '../../../components/dialogs/confirm-delete-movie/confirm-delete-movie.component'
+import { FilmeResponse } from 'src/app/models/filme/filme-response'
+import { ApiService } from 'src/app/service/api-service'
 
 interface Movie {
   id: number
@@ -16,7 +18,8 @@ interface Movie {
   styleUrls: ['./movies.component.css']
 })
 
-export class MoviesComponent {
+export class MoviesComponent implements OnInit{
+  filmes: FilmeResponse[] = [];
   asideStatus: boolean = false
 
   movies: Movie[] = []
@@ -27,11 +30,27 @@ export class MoviesComponent {
 
   searchMovie: string = ''
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, 
+    private apiService: ApiService) {
     this.asideStatus = false
     this.movies = this.generateMovies()
     this.totalPages = Math.ceil(this.movies.length / this.pageSize)
     this.updateDisplayedItems()
+  }
+
+  ngOnInit(): void {
+      this.getAllMovies();
+  }
+
+  getAllMovies(): void{
+    this.apiService.getAllMovie().subscribe(
+      (data) => {
+        this.filmes = data;
+      },
+      (error) => {
+        console.error("Erro ao obter lista de filmes:", error)
+      }
+    )
   }
 
   // Dialog
