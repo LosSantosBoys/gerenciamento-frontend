@@ -1,0 +1,59 @@
+<div class="container">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main class="content">
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Filmes / adicionar filme</h2>
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <div class="input_group">
+        <label for="name">Nome</label>
+        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="funcionario.nome" />
+      </div>
+      <div class="flex">
+        <div class="input_group">
+          <label for="cpf">Cpf</label>
+          <input type="text" placeholder="Ex: 51661531890" id="cpf" />
+        </div>
+        <div class="input_group">
+          <label for="email">Email</label>
+          <input type="email" placeholder="Ex: henrique.de.melo.crisioglu@gmail.com" id="email" />
+        </div>
+      </div>
+      <div class="flex">
+        <div class="input_group">
+          <label for="role">Cargo</label>
+          <input type="role" placeholder="Ex: admin" id="role" />
+        </div>
+        <div class="input_group">
+          <label for="athorization">Autorizacao</label>
+          <div class="select_group">
+            <select id="athorization" name="athorization" [(ngModel)]="funcionario.tipoAutorizacao">
+              <option value="0">Admin</option>
+              <option value="1">Leitura/escrita</option>
+              <option value="2">Escrita</option>
+              <option value="3">Leitura</option>
+            </select>
+            <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
+          </div>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="input_group">
+          <label for="username">Username</label>
+          <input type="text" placeholder="Ex: henrique123" id="username" />
+        </div>
+        <div class="input_group">
+          <label for="password">Password</label>
+          <input type="password" placeholder="Ex: henrique123" id="password" />
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" routerLink="/admin/movies">Cancelar</button>
+        <button type="submit">Adiconar Funcionario</button>
+      </div>
+    </form>
+  </main>
+</div>

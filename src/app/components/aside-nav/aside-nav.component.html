@@ -5,7 +5,8 @@
   <aside>
     <div class="logo">
       <p>CineLumin</p>
-      <img src="../../../assets/icons/light.png" alt="lampada vermelha fazendo papel de letra no logotipo" title="lampada vermelha fazendo papel de letra no logotipo" />
+      <img src="../../../assets/icons/light.png" alt="lampada vermelha fazendo papel de letra no logotipo"
+        title="lampada vermelha fazendo papel de letra no logotipo" />
     </div>
     <div class="flex">
       <nav>
@@ -22,6 +23,10 @@
             <img src="../../../assets/icons/movie.png" alt="icone de casa" title="casa" />
             <li>Filmes</li>
           </a>
+          <a [routerLink]="['/admin/employees']" [routerLinkActive]="'active'">
+            <img src="../../../assets/icons/employee.png" alt="icone de casa" title="casa" />
+            <li>Funcionarios</li>
+          </a>
           <a>
             <img src="../../../assets/icons/cart.png" alt="icone de casa" title="casa" />
             <li>Produtos</li>
@@ -33,7 +38,8 @@
         </ul>
       </nav>
       <div class="admin_profile">
-        <img src="../../../assets/images/profile_example.jpg" alt="imagem de perfil de uma mulher" title="Janette Tompson" />
+        <img src="../../../assets/images/profile_example.jpg" alt="imagem de perfil de uma mulher"
+          title="Janette Tompson" />
         <div class="info">
           <p class="name">Janette Tompson</p>
           <p class="email">janette_tompson@gmail.com</p>

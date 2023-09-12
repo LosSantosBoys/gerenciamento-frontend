@@ -34,6 +34,8 @@ import { MoviesComponent } from './pages/admin/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component';
 import { ConfirmDeleteMovieComponent } from './components/dialogs/confirm-delete-movie/confirm-delete-movie.component';
+import { EmployeesComponent } from './pages/admin/employees/employees.component';
+import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { ConfirmDeleteMovieComponent } from './components/dialogs/confirm-delete
     CardInfoSpecifySessionComponent,
     MoviesComponent,
     MovieCreateComponent,
-    ConfirmDeleteMovieComponent
+    ConfirmDeleteMovieComponent,
+    EmployeesComponent,
+    EmployeeCreateComponent
   ],
   imports: [
     BrowserModule,
