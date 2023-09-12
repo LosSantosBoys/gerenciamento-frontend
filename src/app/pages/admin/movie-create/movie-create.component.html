@@ -7,7 +7,7 @@
         <h2>Filmes / adicionar filme</h2>
       </div>
     </div>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
       <div class="upload-container">
         <label for="bannerImage" class="upload-label">
           <div class="upload-preview" [style.background-image]="'url(' + selectedBannerImage + ')'">
@@ -24,18 +24,18 @@
       </div>
       <div class="input_group">
         <label for="name">Nome</label>
-        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="filme.titulo" />
+        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="filme.titulo" required/>
       </div>
       <div class="flex">
         <div class="input_group">
           <label for="classification">Classificação indicativa</label>
           <div class="select_group">
             <select id="classification" name="classificacaoIndicativa" [(ngModel)]="filme.classificacaoIndicativa">
-              <option value="free">Livre</option>
+              <option value="L">Livre</option>
               <option value="10">10</option>
               <option value="12">12</option>
-              <option value="12">16</option>
-              <option value="12">18</option>
+              <option value="16">16</option>
+              <option value="18">18</option>
             </select>
             <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
           </div>

@@ -18,6 +18,12 @@ export class ApiService {
         return this.http.post<any>(this.url + 'usuario/funcionario', body);
     }
 
+    // EP Filmes
+
+    getAllMovie(): Observable<any> {
+        return this.http.get<any>(this.url + 'filmes');
+    }
+
     addMovie(body: FilmeRequest): Observable<any> {
         return this.http.post<any>(this.url + 'filmes', body);
     }

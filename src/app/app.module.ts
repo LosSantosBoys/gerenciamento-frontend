@@ -36,6 +36,8 @@ import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.co
 import { ConfirmDeleteMovieComponent } from './components/dialogs/confirm-delete-movie/confirm-delete-movie.component';
 import { EmployeesComponent } from './pages/admin/employees/employees.component';
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarService } from './components/snackbar/snackbar';
 
 @NgModule({
   declarations: [
@@ -76,9 +78,11 @@ import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule
   ],
   providers: [
     ApiService,
+    SnackbarService
   ],
   bootstrap: [AppComponent]
 })

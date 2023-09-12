@@ -21,22 +21,22 @@
           <th>Nome</th>
           <th>Produtora</th>
           <th>Status</th>
-          <th>Data</th>
+          <th>Duração</th>
           <th>Ações</th>
         </tr>
-        <tr *ngFor="let movie of displayedItems">
-          <td>{{ movie.id }}</td>
-          <td>{{ movie.name }}</td>
-          <td>{{ movie.producer }}</td>
-          <td>{{ movie.status }}</td>
-          <td>{{ movie.date }}</td>
+        <tr *ngFor="let filme of filmes">
+          <td>{{ filme.id }}</td>
+          <td>{{ filme.titulo }}</td> 
+          <td>{{ filme.descricao }}</td> 
+          <td>{{ filme.emCartaz ? 'Em cartaz' : 'Fora de cartaz' }}</td> 
+          <td>{{ filme.duracao }}</td>
           <td>
             <button type="button">
               <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
             </button>
             <button type="button">
               <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}"
-                (click)="openDialog(movie.id)">restore_from_trash</mat-icon>
+                (click)="openDialog(filme.id)">restore_from_trash</mat-icon>
             </button>
           </td>
         </tr>
