@@ -1,0 +1,166 @@
+.container {
+  background-color: var(--bg_admin);
+  display: flex;
+  height: 100vh;
+}
+
+/* MAIN CONTENT */
+.container main {
+  width: 100%;
+  padding: 20px 30px;
+  overflow-y: scroll;
+}
+
+.container main .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container main .header div {
+  display: flex;
+  gap: 3px;
+}
+
+.container main .header h2 {
+  color: var(--white);
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.container main .header button {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 5px;
+  color: var(--second_red);
+  padding: 0 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase;
+  border: 1px solid var(--second_red);
+  background-color: transparent;
+  height: 42px;
+  transition: all .1s ease;
+}
+
+.container main .header button img {
+  width: 25px;
+  height: 25px;
+}
+
+.container main .search {
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+
+.container main .search input {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  color: var(--grey);
+  border-radius: 5px;
+  background-color: var(--bg_input);
+  font-size: 17px;
+  outline: none;
+  font-weight: 500;
+}
+
+.container main .search img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.container main table {
+  background-color: var(--bg_input);
+  padding: 15px 25px;
+  width: 100%;
+  color: var(--white);
+  border-radius: 5px;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.container main table th {
+  font-size: 16px;
+  padding-bottom: 8px;
+}
+
+.container main table td {
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.container main table td button {
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+}
+
+/* PAGINATIONS */
+.container main .pagination {
+  color: var(--white);
+  font-weight: 500;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.container main .pagination p {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.container main .pagination button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: all .1s ease;
+}
+
+.container main .pagination button:hover {
+  color: var(--second_red);
+  transition: all .1s ease;
+}
+
+
+.container main .pagination button:disabled {
+  cursor: initial;
+  color: #d9d9d98b;
+}
+
+.hidden {
+  display: none;
+}
+
+@media(max-width: 700px) {
+  .container main .data {
+    overflow-x: scroll;
+  }
+
+  .container main .data table {
+    min-width: 700px;
+    max-width: 700px;
+    width: 700px;
+  }
+}

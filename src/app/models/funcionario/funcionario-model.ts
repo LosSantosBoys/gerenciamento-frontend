@@ -6,4 +6,5 @@ export interface FuncionarioRequest {
     cargo: string;
     username: string;
     senha: string;
+    tipoAutorizacao: string
 }

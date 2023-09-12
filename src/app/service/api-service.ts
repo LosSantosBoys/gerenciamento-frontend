@@ -22,6 +22,10 @@ export class ApiService {
         return this.http.post<any>(this.url + 'filmes', body);
     }
 
+    addFuncionario(body: FuncionarioRequest): Observable<any> {
+        return this.http.post<any>(this.url + 'usuario/funcionario', body);
+    }
+
     getMovie(title: string): Observable<any> {
         return this.http.get<any>(this.url + '/filmes/' + title);
     }

@@ -1,0 +1,49 @@
+<div class="container">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main class="content">
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Filmes</h2>
+      </div>
+      <button type="button" routerLink="/admin/employee/create">
+        Adicionar filme
+      </button>
+    </div>
+    <div class="data">
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Cpf</th>
+          <th>Telefone</th>
+          <th>Autorizacao</th>
+          <th>Cargo</th>
+          <th>Ações</th>
+        </tr>
+        <tr *ngFor="let employee of displayedItems">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.nome }}</td>
+          <td>{{ employee.cpf }}</td>
+          <td>{{ employee.telefone }}</td>
+          <td>{{ employee.tipoAutorizacao }}</td>
+          <td>{{ employee.cargo }}</td>
+          <td>
+            <button type="button">
+              <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
+            </button>
+            <button type="button">
+              <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}"
+                (click)="openDialog(employee.id)">restore_from_trash</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="pagination">
+      <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <p>{{ currentPage }} de {{ totalPages }}</p>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
+    </div>
+  </main>
+</div>

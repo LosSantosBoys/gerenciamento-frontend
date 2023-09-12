@@ -16,6 +16,7 @@ export class RegisterComponent {
     senha: '',
     cargo: '',
     telefone: '',
+    tipoAutorizacao: ''
   };
 
   constructor(private apiService: ApiService) { }

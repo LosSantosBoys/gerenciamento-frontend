@@ -37,14 +37,11 @@ export class MoviesComponent {
   // Dialog
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDeleteMovieComponent, {
-      data: { id },
-
+      data: {
+        id,
+        text: 'Filme'
+      },
     })
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed')
-    //   this.animal = result;
-    // })
   }
 
   // Filter
