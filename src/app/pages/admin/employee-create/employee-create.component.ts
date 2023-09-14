@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FuncionarioRequest } from 'src/app/models/funcionario/funcionario-model';
 import { ApiService } from 'src/app/service/api-service';
+import { SnackbarService } from 'src/app/components/snackbar/snackbar';
 
 @Component({
   selector: 'app-employee-create',
@@ -21,14 +22,16 @@ export class EmployeeCreateComponent {
     tipoAutorizacao: ''
   };
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService,
+    private snackbarService: SnackbarService,
+    ) {
     this.asideStatus = false
   }
 
   onSubmit(): void {
     this.apiService.addFuncionario(this.funcionario).subscribe({
-      error: (error) => console.error(error),
-      complete: () => console.info('cadastrado')
+      error: (error) => this.snackbarService.falha("Erro"),
+      complete: () => this.snackbarService.sucesso("Cadastrado")
     });
   }
 

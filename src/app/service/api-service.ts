@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { FuncionarioRequest } from "../models/funcionario/funcionario-model";
 import { FilmeRequest } from "../models/filme/filme-model";
+import { LoginDto } from "../models/autenticacao/login-request";
+import { LoginResponse } from "../models/autenticacao/login-response";
 
 @Injectable()
 export class ApiService {
@@ -10,6 +12,7 @@ export class ApiService {
 
     constructor(private http: HttpClient) { }
 
+    //EP Funcionarios
     getData(): Observable<any> {
         return this.http.get<any>(this.url);
     }
@@ -17,6 +20,22 @@ export class ApiService {
     postData(body: FuncionarioRequest): Observable<any> {
         return this.http.post<any>(this.url + 'usuario/funcionario', body);
     }
+
+    addFuncionario(body: FuncionarioRequest): Observable<any> {
+        return this.http.post<any>(this.url + 'usuario/funcionario', body);
+    }
+
+    // EP Autenticacao
+
+    efetuarLogin(body: LoginDto): Observable<any> {
+        const headers = {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+        };
+    
+        return this.http.post<any>(this.url + 'login', body, { headers });
+    }
+    
 
     // EP Filmes
 
@@ -26,10 +45,6 @@ export class ApiService {
 
     addMovie(body: FilmeRequest): Observable<any> {
         return this.http.post<any>(this.url + 'filmes', body);
-    }
-
-    addFuncionario(body: FuncionarioRequest): Observable<any> {
-        return this.http.post<any>(this.url + 'usuario/funcionario', body);
     }
 
     getMovie(title: string): Observable<any> {

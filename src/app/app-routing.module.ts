@@ -12,6 +12,7 @@ import { MoviesComponent } from './pages/admin/movies/movies.component'
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component'
 import { EmployeesComponent } from './pages/admin/employees/employees.component'
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component'
+import { AuthGuard } from './components/root-guard/auth-guard'
 
 const routes: Routes = [
   { 'path': 'login', component: LoginComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
   { 'path': 'admin/login', component: LoginAdminComponent },
   { 'path': 'admin/sessions', component: SessionsComponent },
   { 'path': 'admin/session/:id', component: SpecifySessionComponent },
-  { 'path': 'admin/movies', component: MoviesComponent },
+  { 'path': 'admin/movies', component: MoviesComponent, canActivate: [AuthGuard] },
   { 'path': 'admin/movie/create', component: MovieCreateComponent },
   { 'path': 'admin/employees', component: EmployeesComponent },
   { 'path': 'admin/employee/create', component: EmployeeCreateComponent },

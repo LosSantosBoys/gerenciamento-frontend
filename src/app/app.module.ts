@@ -26,7 +26,7 @@ import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
 import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
 import { ApiService } from './service/api-service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
@@ -38,6 +38,8 @@ import { EmployeesComponent } from './pages/admin/employees/employees.component'
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarService } from './components/snackbar/snackbar';
+import { HttpLoggingInterceptor } from './components/utils/http-logging-interceptor';
+
 
 @NgModule({
   declarations: [
@@ -82,7 +84,12 @@ import { SnackbarService } from './components/snackbar/snackbar';
   ],
   providers: [
     ApiService,
-    SnackbarService
+    SnackbarService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpLoggingInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })
