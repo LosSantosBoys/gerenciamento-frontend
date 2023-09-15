@@ -13,13 +13,14 @@ import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.co
 import { EmployeesComponent } from './pages/admin/employees/employees.component'
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component'
 import { AuthGuard } from './components/root-guard/auth-guard'
+import { LoggedInAuthGuard } from './components/root-guard/logged-auth-guard'
 
 const routes: Routes = [
   { 'path': 'login', component: LoginComponent },
   { 'path': 'register', component: RegisterComponent },
   { 'path': 'forgot-password', component: ForgotPasswordComponent },
   { 'path': 'movies/:id', component: MoviePageComponent },
-  { 'path': 'admin/login', component: LoginAdminComponent },
+  { 'path': 'admin/login', component: LoginAdminComponent, canActivate: [LoggedInAuthGuard] },
   { 'path': 'admin/sessions', component: SessionsComponent },
   { 'path': 'admin/session/:id', component: SpecifySessionComponent },
   { 'path': 'admin/movies', component: MoviesComponent, canActivate: [AuthGuard] },
