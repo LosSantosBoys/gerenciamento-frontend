@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AuthenticationService } from '../auth-service/auth-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside-nav',
@@ -7,7 +9,15 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class AsideNavComponent {
-  cssClass: string = 'aside_wrapper'
+  cssClass: string = 'aside_wrapper';
+  sub: string | null;
+  name: string | null;
+
+  constructor(public authService: AuthenticationService,
+    private router: Router) {
+    this.sub = this.authService.getSubFromToken();
+    this.name = this.authService.getNameFromToken();
+  }
 
   @Input() status: boolean = false
   @Output() closedAside: EventEmitter<void> = new EventEmitter<void>()

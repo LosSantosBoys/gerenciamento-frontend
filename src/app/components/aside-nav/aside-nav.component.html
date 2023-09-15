@@ -23,7 +23,7 @@
             <img src="../../../assets/icons/movie.png" alt="icone de casa" title="casa" />
             <li>Filmes</li>
           </a>
-          <a [routerLink]="['/admin/employees']" [routerLinkActive]="'active'">
+          <a [routerLink]="['/admin/employees']" [routerLinkActive]="'active'" *appHasRole="'ROLE_ADMIN'">
             <img src="../../../assets/icons/employee.png" alt="icone de casa" title="casa" />
             <li>Funcionarios</li>
           </a>
@@ -31,7 +31,7 @@
             <img src="../../../assets/icons/cart.png" alt="icone de casa" title="casa" />
             <li>Produtos</li>
           </a>
-          <a>
+          <a [routerLink]="['/admin/logout']" [routerLinkActive]="'active'">
             <img src="../../../assets/icons/arrow_left.png" alt="icone de casa" title="casa" />
             <li>Sair</li>
           </a>
@@ -41,8 +41,8 @@
         <img src="../../../assets/images/profile_example.jpg" alt="imagem de perfil de uma mulher"
           title="Janette Tompson" />
         <div class="info">
-          <p class="name">Janette Tompson</p>
-          <p class="email">janette_tompson@gmail.com</p>
+          <p class="name">{{ name }}</p>
+          <p class="username">{{ sub }}</p>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ export class AuthGuard {
     }
 
     else if (this.authService.isTokenExpired()) {
-      //this.authService.logout(); // Método para fazer logout
+      this.authService.logout();
       window.alert('Sessão expirada. Por favor, realize o login novamente.');
       return this.router.createUrlTree(['admin/login']);
     }

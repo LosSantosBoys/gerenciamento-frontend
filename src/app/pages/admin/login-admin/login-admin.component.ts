@@ -4,6 +4,7 @@ import { SnackbarService } from 'src/app/components/snackbar/snackbar';
 import { LoginDto } from 'src/app/models/autenticacao/login-request';
 import { LoginResponse } from 'src/app/models/autenticacao/login-response';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-admin',
@@ -22,6 +23,7 @@ export class LoginAdminComponent {
   constructor(
     private apiService: ApiService,
     private snackbarService: SnackbarService,
+    private router: Router
     ) {
     this.asideStatus = false
   }
@@ -38,6 +40,7 @@ export class LoginAdminComponent {
         },
         complete: () => {
           this.snackbarService.sucesso("Login efetuado com sucesso!");
+          this.router.navigate(['admin/movies']);
         }
       });
     }

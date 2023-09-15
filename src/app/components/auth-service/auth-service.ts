@@ -52,4 +52,79 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
   }
 
+  getSubFromToken(): string | null {
+    const userStr = localStorage.getItem('currentUser');
+
+    // Verificar se o usuário está logado
+    if (userStr) {
+      const user = JSON.parse(userStr);
+
+      if (user && user.token) {
+        try {
+          const decodedToken: any = jwtDecode(user.token);
+          
+          if (decodedToken.sub) {
+            return decodedToken.sub;
+          }
+        } catch (error) {
+          console.error('Erro ao decodificar o token:', error);
+        }
+      }
+    }
+
+    return null;
+  }
+
+  getNameFromToken(): string | null {
+    const userStr = localStorage.getItem('currentUser');
+
+    // Verificar se o usuário está logado
+    if (userStr) {
+      const user = JSON.parse(userStr);
+
+      if (user && user.token) {
+        try {
+          const decodedToken: any = jwtDecode(user.token);
+          
+          if (decodedToken.nome) {
+            return decodedToken.nome;
+          }
+        } catch (error) {
+          console.error('Erro ao decodificar o token:', error);
+        }
+      }
+    }
+
+    return null;
+  }
+
+  getUserRoles(): string[] {
+    const userStr = localStorage.getItem('currentUser');
+    const roles: string[] = [];
+  
+    // Verificar se o usuário está logado
+    if (userStr) {
+      const user = JSON.parse(userStr);
+  
+      if (user && user.token) {
+        try {
+          const decodedToken: any = jwtDecode(user.token);
+  
+          if (decodedToken.role) { 
+            roles.push(decodedToken.role); 
+          }
+        } catch (error) {
+          console.error('Erro ao decodificar o token:', error);
+        }
+      }
+    }
+  
+    return roles;
+  }
+  
+  
+
+  logout(): void {
+    localStorage.removeItem('currentUser');
+  }
 }

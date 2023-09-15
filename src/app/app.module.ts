@@ -39,6 +39,7 @@ import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarService } from './components/snackbar/snackbar';
 import { HttpLoggingInterceptor } from './components/utils/http-logging-interceptor';
+import { HasRoleDirective } from './components/has-role-directive/has-role-directive';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { HttpLoggingInterceptor } from './components/utils/http-logging-intercep
     MovieCreateComponent,
     ConfirmDeleteMovieComponent,
     EmployeesComponent,
-    EmployeeCreateComponent
+    EmployeeCreateComponent,
+    HasRoleDirective
   ],
   imports: [
     BrowserModule,

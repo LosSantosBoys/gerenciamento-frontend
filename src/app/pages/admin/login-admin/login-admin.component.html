@@ -7,15 +7,16 @@
     </div>
     
     <input type="text" placeholder="Nome de usuário" [(ngModel)]="login.username" name="username" required>
-    <div *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)">
+    <div *ngIf="form.control.hasError('required', 'username') && form.submitted">
       <p class="error-message">O campo Nome de usuário é obrigatório.</p>
     </div>
 
     <input type="password" placeholder="Senha" [(ngModel)]="login.senha" name="senha" required>
-    <div *ngIf="form.controls['senha'].invalid && (form.controls['senha'].dirty || form.controls['senha'].touched)">
+    <div *ngIf="form.control.hasError('required', 'senha') && form.submitted">
       <p class="error-message">O campo Senha é obrigatório.</p>
     </div>
 
     <button type="submit">Entrar</button>
     <p class="forgot_password">Esqueceu a senha? <a routerLink="/forgot-password">Clique Aqui</a></p>
   </form>
+</div>
