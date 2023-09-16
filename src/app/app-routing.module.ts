@@ -12,6 +12,7 @@ import { MoviesComponent } from './pages/admin/movies/movies.component'
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component'
 import { EmployeesComponent } from './pages/admin/employees/employees.component'
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component'
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 
 const routes: Routes = [
   { 'path': 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { 'path': 'admin/movie/create', component: MovieCreateComponent },
   { 'path': 'admin/employees', component: EmployeesComponent },
   { 'path': 'admin/employee/create', component: EmployeeCreateComponent },
+  { 'path': 'admin/dashboard', component: DashboardComponent },
   { 'path': 'admin', redirectTo: '/admin/login' },
   { 'path': '', component: HomePageComponent, }
 ];

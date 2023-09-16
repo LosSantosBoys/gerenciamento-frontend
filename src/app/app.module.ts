@@ -29,7 +29,7 @@ import { ApiService } from './service/api-service';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
-import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
+import { CardInfoSpecifyComponent } from './components/card-info-specify/card-info-specify.component';
 import { MoviesComponent } from './pages/admin/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component';
@@ -38,6 +38,9 @@ import { EmployeesComponent } from './pages/admin/employees/employees.component'
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarService } from './components/snackbar/snackbar';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
 
 @NgModule({
   declarations: [
@@ -57,12 +60,14 @@ import { SnackbarService } from './components/snackbar/snackbar';
     MoviePageComponent,
     SafePipe,
     SpecifySessionComponent,
-    CardInfoSpecifySessionComponent,
+    CardInfoSpecifyComponent,
     MoviesComponent,
     MovieCreateComponent,
     ConfirmDeleteMovieComponent,
     EmployeesComponent,
-    EmployeeCreateComponent
+    EmployeeCreateComponent,
+    DashboardComponent,
+    MovieItemComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,8 @@ import { SnackbarService } from './components/snackbar/snackbar';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgApexchartsModule
   ],
   providers: [
     ApiService,

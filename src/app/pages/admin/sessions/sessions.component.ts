@@ -6,6 +6,7 @@ import { SessionItem } from 'src/app/components/session-item/session-item.compon
   templateUrl: './sessions.component.html',
   styleUrls: ['./sessions.component.css']
 })
+
 export class SessionsComponent {
   sessions: SessionItem[]
   asideStatus: boolean
