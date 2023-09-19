@@ -4,52 +4,112 @@
     <div class="header">
       <div>
         <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
-        <h2>Funcionarios/ adicionar funcionario</h2>
+        <h2>Funcionários / Adicionar funcionário</h2>
       </div>
     </div>
-    <form (ngSubmit)="onSubmit()">
-      <div class="input_group">
-        <label for="name">Nome</label>
-        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="funcionario.nome" />
-      </div>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
       <div class="flex">
         <div class="input_group">
-          <label for="cpf">Cpf</label>
-          <input type="text" placeholder="Ex: 51661531890" id="cpf" />
+          <label for="name">Nome</label>
+          <input type="text" placeholder="Ex: Raul Andres" id="name" name="name" [(ngModel)]="funcionario.nome" required/>
+          <div *ngIf="form.control.hasError('required', 'name') && form.submitted">
+            <p class="error-message">O campo Nome é obrigatório.</p>
+          </div>
         </div>
         <div class="input_group">
-          <label for="email">Email</label>
-          <input type="email" placeholder="Ex: henrique.de.melo.crisioglu@gmail.com" id="email" />
+          <label for="username">Data de admissão</label>  
+          <div class="flex">
+          <input matInput [matDatepicker]="datepicker" name="dataAdmissao" [(ngModel)]="funcionario.dataAdmissao">
+          <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker name="dataAdmissao" [(ngModel)]="funcionario.salario" ngDefaultControl>
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancelar</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="input_group">
+          <label for="cpf">CPF</label>
+          <input type="text" placeholder="Ex: 516.615.318-90" id="cpf" name="cpf" [(ngModel)]="funcionario.cpf" mask="000.000.000-00" required/>
+          <div *ngIf="form.control.hasError('required', 'cpf') && form.submitted">
+            <p class="error-message">O campo CPF é obrigatório.</p>
+          </div>
+        </div>
+        <div class="input_group">
+          <label for="email">E-mail</label>
+          <input type="email" placeholder="Ex: henrique.de.melo.crisioglu@gmail.com" id="email" name="email" [(ngModel)]="funcionario.email" required/>
+          <div *ngIf="form.control.hasError('required', 'email') && form.submitted">
+            <p class="error-message">O campo E-mail é obrigatório.</p>
+          </div>
         </div>
       </div>
       <div class="flex">
+          <div class="input_group">
+            <label for="salario">Salário</label>
+            <input type="number" placeholder="2.500" id="salario" name="salario" [(ngModel)]="funcionario.salario" required min="0" />
+            <div *ngIf="form.control.hasError('required', 'salario') && form.submitted">
+              <p class="error-message">O campo Salário é obrigatório.</p>
+            </div>
+          </div>
+            
         <div class="input_group">
-          <label for="role">Cargo</label>
-          <input type="role" placeholder="Ex: admin" id="role" />
-        </div>
-        <div class="input_group">
-          <label for="athorization">Autorizacao</label>
+          <label for="athorization">Autorização</label>
           <div class="select_group">
-            <select id="athorization" name="athorization" [(ngModel)]="funcionario.tipoAutorizacao">
+            <select id="authorization" name="authorization" [(ngModel)]="funcionario.tipoAutorizacao" required>
               <option value="0">Admin</option>
               <option value="1">Leitura/escrita</option>
               <option value="2">Escrita</option>
               <option value="3">Leitura</option>
             </select>
+            <div *ngIf="form.control.hasError('required', 'authorization') && form.submitted">
+              <p class="error-message">O campo Autorização é obrigatório.</p>
+            </div>
             <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
           </div>
         </div>
       </div>
+
       <div class="flex">
         <div class="input_group">
-          <label for="username">Username</label>
-          <input type="text" placeholder="Ex: henrique123" id="username" />
+          <label for="username">Usário</label>
+          <input type="text" placeholder="Ex: henrique123" id="username" name="username" [(ngModel)]="funcionario.username" required/>
+          <div *ngIf="form.control.hasError('required', 'username') && form.submitted">
+            <p class="error-message">O campo Usuário é obrigatório.</p>
+          </div>
         </div>
         <div class="input_group">
-          <label for="password">Password</label>
-          <input type="password" placeholder="Ex: henrique123" id="password" />
+          <label for="password">Senha</label>
+          <input type="password" placeholder="Ex: senhaForte56872!" id="password" name="password" [(ngModel)]="funcionario.senha" required/>
+          <div *ngIf="form.control.hasError('required', 'password') && form.submitted">
+            <p class="error-message">O campo Senha é obrigatório.</p>
+          </div>
         </div>
       </div>
+
+      <div class="flex">
+        <div class="input_group">
+          <label for="role">Cargo</label>
+          <input type="text" placeholder="Ex: Estagiário" id="role" name="cargo" [(ngModel)]="funcionario.cargo" />
+        </div>      
+        <div class="input_group">
+            <label for="areaAtuacao">Area de atuação</label>
+            <div class="select_group">
+              <select id="areaAtuacao" name="areaAtuacao" [(ngModel)]="funcionario.areaAtuacao">
+                <option value="0">Recursos Humanos</option>
+                <option value="1">Jurídico</option>
+                <option value="2">Tecnologia da Informação</option>
+                <option value="3">Marketing</option>
+                <option value="4">Comunicação</option>
+              </select>
+              <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
+            </div>
+        </div>
+      </div>
+
       <div class="actions">
         <button type="button" routerLink="/admin/movies">Cancelar</button>
         <button type="submit">Adiconar Funcionario</button>

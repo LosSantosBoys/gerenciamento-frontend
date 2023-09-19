@@ -27,8 +27,8 @@ const routes: Routes = [
   { 'path': 'admin/session/:id', component: SpecifySessionComponent },
   { 'path': 'admin/movies', component: MoviesComponent, canActivate: [AuthGuard] },
   { 'path': 'admin/movie/create', component: MovieCreateComponent },
-  { 'path': 'admin/employees', component: EmployeesComponent },
-  { 'path': 'admin/employee/create', component: EmployeeCreateComponent },
+  { 'path': 'admin/employees', component: EmployeesComponent, canActivate: [AuthGuard] },
+  { 'path': 'admin/employee/create', component: EmployeeCreateComponent, canActivate: [AuthGuard] },
   { 'path': 'admin', redirectTo: '/admin/login' },
   { 'path': '', component: HomePageComponent, }
 ];

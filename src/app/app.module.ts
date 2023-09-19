@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './pages/user/auth/register/register.component';
@@ -40,6 +39,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarService } from './components/snackbar/snackbar';
 import { HttpLoggingInterceptor } from './components/utils/http-logging-interceptor';
 import { HasRoleDirective } from './components/has-role-directive/has-role-directive';
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+import { MatNativeDateModule } from '@angular/material/core'; 
+import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false, // Desativa a validação automática
+};
 
 
 @NgModule({
@@ -82,8 +89,16 @@ import { HasRoleDirective } from './components/has-role-directive/has-role-direc
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
-  ],
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule, 
+    MatInputModule, 
+    MatDialogModule, 
+    MatButtonModule, 
+    MatButtonToggleModule,
+    NgxMaskModule.forRoot(maskConfig),
+    ],
   providers: [
     ApiService,
     SnackbarService,

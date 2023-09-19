@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import jwtDecode from 'jwt-decode';
 
 @Injectable({
@@ -123,6 +124,28 @@ export class AuthenticationService {
   }
   
   
+  getToken(): HttpHeaders{
+    const userStr = localStorage.getItem('currentUser');
+    let user = null;
+    if (userStr) {
+      user = JSON.parse(userStr);
+
+      if (user && user.token) {
+        try {
+          if (user) {
+            return new HttpHeaders({
+              'Authorization': `${user.token}`
+            });
+          }          
+        } catch (error) {
+          console.error('Erro ao decodificar o token:', error);
+        }
+      }
+    }
+
+    return new HttpHeaders();
+  }
+
 
   logout(): void {
     localStorage.removeItem('currentUser');

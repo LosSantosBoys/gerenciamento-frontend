@@ -1,16 +1,19 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { FuncionarioRequest } from "../models/funcionario/funcionario-model";
 import { FilmeRequest } from "../models/filme/filme-model";
 import { LoginDto } from "../models/autenticacao/login-request";
 import { LoginResponse } from "../models/autenticacao/login-response";
+import { AuthenticationService } from "../components/auth-service/auth-service";
 
 @Injectable()
 export class ApiService {
     private url = 'http://localhost:8080/api/v1/';
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+        private authService: AuthenticationService) { 
+    }
 
     //EP Funcionarios
     getData(): Observable<any> {
@@ -22,8 +25,29 @@ export class ApiService {
     }
 
     addFuncionario(body: FuncionarioRequest): Observable<any> {
-        return this.http.post<any>(this.url + 'usuario/funcionario', body);
+        const headers = this.authService.getToken();
+        return this.http.post<any>(this.url + 'usuario/funcionario', body, { headers });
     }
+    
+    buscarFuncionarios(page: number, pageSize: number, nome?: string, documento?: string, cargo?: string): Observable<any> {
+        let params = new HttpParams()
+          .set('pagina', page.toString())
+          .set('tamanhoPagina', pageSize.toString());
+    
+        if (nome) {
+          params = params.set('nome', nome);
+        }
+        if (documento) {
+          params = params.set('documento', documento);
+        }
+        if (cargo) {
+          params = params.set('cargo', cargo);
+        }
+    
+        const headers = this.authService.getToken();
+    
+        return this.http.get<any[]>(this.url + 'usuario/funcionarios', { headers, params });
+      }
 
     // EP Autenticacao
 
