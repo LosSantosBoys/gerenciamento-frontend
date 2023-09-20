@@ -29,6 +29,8 @@
     "ng-apexcharts": "^1.8.0",
     "ngx-bootstrap": "^11.0.2",
     "ngx-mask": "^13.1.13",
+    "apexcharts": "^3.42.0",
+    "ng-apexcharts": "^1.8.0",
     "normalize.css": "^8.0.1",
     "randombytes": "^2.1.0",
     "rxjs": "~7.8.0",
