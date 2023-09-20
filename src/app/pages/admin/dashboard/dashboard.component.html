@@ -1,0 +1,53 @@
+<div class="container" id="ctn">
+  <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+  <main class="content">
+    <div class="header">
+      <div>
+        <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+        <h2>Início</h2>
+      </div>
+    </div>
+    <div class="info_card_row">
+      <app-card-info-specify [card]="cardsInfoSpecify[0]"></app-card-info-specify>
+      <app-card-info-specify [card]="cardsInfoSpecify[1]"></app-card-info-specify>
+      <app-card-info-specify [card]="cardsInfoSpecify[2]"></app-card-info-specify>
+    </div>
+    <div class="grafics">
+      <div class="buyed_tickets">
+        <apx-chart [series]="chartOptionsTickets.series" [chart]="chartOptionsTickets.chart"
+          [xaxis]="chartOptionsTickets.xaxis" [stroke]="chartOptionsTickets.stroke"
+          [tooltip]="chartOptionsTickets.tooltip" [dataLabels]="chartOptionsTickets.dataLabels"
+          [fill]="chartOptionsTickets.fill" [markers]="chartOptionsTickets.markers" [theme]="chartOptionsTickets.theme"
+          [yaxis]="chartOptionsTickets.yaxis" [title]="chartOptionsTickets.title"></apx-chart>
+      </div>
+      <div class="pies">
+        <div class="most_watched_genres">
+          <apx-chart [series]="chartOptionsGenres.series" [chart]="chartOptionsGenres.chart"
+            [labels]="chartOptionsGenres.labels" [title]="chartOptionsGenres.title"></apx-chart>
+        </div>
+        <div class="most_buyed_product">
+          <apx-chart [series]="chartOptionsProducts.series" [chart]="chartOptionsProducts.chart"
+            [labels]="chartOptionsProducts.labels" [title]="chartOptionsProducts.title"></apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="movies">
+      <div class="movie-group">
+        <h3>Filmes mais assistidos</h3>
+        <ul class="row">
+          <li *ngFor="let movieItem of mostWatchedMovies">
+            <app-movie-item [movie]="movieItem"></app-movie-item>
+          </li>
+        </ul>
+      </div>
+      <div class="movie-group">
+        <h3>Próximos filmes</h3>
+        <ul class="row">
+          <li *ngFor="let movieItem of nextMovies">
+            <app-movie-item [movie]="movieItem"></app-movie-item>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>

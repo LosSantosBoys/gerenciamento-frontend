@@ -1,0 +1,151 @@
+.container {
+  background-color: var(--bg_admin);
+  display: flex;
+  height: 100vh;
+}
+
+/* MAIN CONTENT */
+.container main {
+  width: 100%;
+  padding: 20px 30px;
+  overflow-y: scroll;
+}
+
+.container main .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container main .header div {
+  display: flex;
+  gap: 3px;
+}
+
+.container main .header h2 {
+  color: var(--white);
+  font-size: 30px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+/* GRAFICS */
+.grafics {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.grafics .buyed_tickets {
+  padding: 15px 20px;
+  flex: 1 1 70%;
+  border-radius: 10px;
+  background-color: var(--bg_session_item);
+}
+
+.grafics .pies {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background-color: var(--bg_session_item);
+}
+
+/* MOVIES */
+.movies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.movies .movie-group {
+  padding: 15px 20px;
+  border-radius: 10px;
+  background-color: var(--bg_session_item);
+}
+
+.movies .movie-group .row {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 0;
+}
+
+.movies .movie-group h3 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.container .info_card_row {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media(max-width: 1200px) {
+
+  /* CARD ROW */
+  .container .info_card_row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media(max-width: 1000px) {
+
+  /* GRAFICS */
+  .grafics {
+    flex-direction: column;
+  }
+
+  .grafics .pies {
+    flex-direction: row;
+  }
+
+  .grafics .pies .most_watched_genres,
+  .grafics .pies .most_buyed_product {
+    flex: 1;
+  }
+
+  /* MOVIES */
+  .movies {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media(max-width: 800px) {
+  .grafics .pies {
+    flex-direction: column;
+  }
+
+  .grafics .pies .most_watched_genres,
+  .grafics .pies .most_buyed_product {
+    width: 100%;
+  }
+}
+
+@media(max-width: 550px) {
+  .movies .movie-group .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 450px) {
+  .movies .movie-group .row {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

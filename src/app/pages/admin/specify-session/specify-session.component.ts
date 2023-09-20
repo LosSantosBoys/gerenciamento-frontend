@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CardInfoSpecifySession } from 'src/app/components/card-info-specify-session/card-info-specify-session.component';
+import { CardInfoSpecify } from 'src/app/components/card-info-specify/card-info-specify.component';
 
 interface ChairRow {
   chairs: Chair[]
@@ -22,12 +22,12 @@ interface Chair {
 
 export class SpecifySessionComponent {
   asideStatus: boolean = false
-  cardsInfoSpecifySession: CardInfoSpecifySession[] = []
+  cardsInfoSpecify: CardInfoSpecify[] = []
   chair_row: ChairRow[] = []
 
   constructor() {
     this.asideStatus = false
-    this.cardsInfoSpecifySession = this.generateCardsInfoSpecifySession()
+    this.cardsInfoSpecify = this.generateCardsInfoSpecify()
     this.chair_row = this.generateChairRow()
   }
 
@@ -620,8 +620,8 @@ export class SpecifySessionComponent {
     return chairRow
   }
 
-  generateCardsInfoSpecifySession(): CardInfoSpecifySession[] {
-    let cards: CardInfoSpecifySession[] = []
+  generateCardsInfoSpecify(): CardInfoSpecify[] {
+    let cards: CardInfoSpecify[] = []
 
     cards[0] = {
       image: {
