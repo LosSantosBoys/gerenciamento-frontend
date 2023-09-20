@@ -28,7 +28,7 @@ import { ApiService } from './service/api-service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
-import { CardInfoSpecifySessionComponent } from './components/card-info-specify-session/card-info-specify-session.component';
+import { CardInfoSpecifyComponent } from './components/card-info-specify/card-info-specify.component';
 import { MoviesComponent } from './pages/admin/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { MovieCreateComponent } from './pages/admin/movie-create/movie-create.component';
@@ -49,6 +49,9 @@ const maskConfig: Partial<IConfig> = {
   validation: false, // Desativa a validação automática
 };
 
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
 
 @NgModule({
   declarations: [
@@ -68,14 +71,16 @@ const maskConfig: Partial<IConfig> = {
     MoviePageComponent,
     SafePipe,
     SpecifySessionComponent,
-    CardInfoSpecifySessionComponent,
+    CardInfoSpecifyComponent,
     MoviesComponent,
     MovieCreateComponent,
     ConfirmDeleteMovieComponent,
     EmployeesComponent,
     EmployeeCreateComponent,
     HasRoleDirective,
-    EmployeeEditComponent
+    EmployeeEditComponent,
+    DashboardComponent,
+    MovieItemComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +97,7 @@ const maskConfig: Partial<IConfig> = {
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    NgApexchartsModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule, 
