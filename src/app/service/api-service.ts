@@ -6,6 +6,7 @@ import { FilmeRequest } from "../models/filme/filme-model";
 import { LoginDto } from "../models/autenticacao/login-request";
 import { LoginResponse } from "../models/autenticacao/login-response";
 import { AuthenticationService } from "../components/auth-service/auth-service";
+import { FuncionarioAtualizarRequest } from "../models/funcionario/funcionario-atualizar-request";
 
 @Injectable()
 export class ApiService {
@@ -47,6 +48,24 @@ export class ApiService {
         const headers = this.authService.getToken();
     
         return this.http.get<any[]>(this.url + 'usuario/funcionarios', { headers, params });
+      }
+
+      inativarFuncionario(documento: string){
+        const headers = this.authService.getToken();
+        return this.http.put<any>(this.url + `usuario/funcionario/inativar/${documento}`, null, { headers });
+      }
+
+      buscarFuncionarioPorDocumento(documento: string){
+        const headers = this.authService.getToken();
+        return this.http.get<any>(this.url + `usuario/funcionario/${documento}`, { headers });
+      }
+
+      atualizarFuncionario(documento: string, body: FuncionarioAtualizarRequest){
+        const headers = this.authService.getToken();
+        let params = new HttpParams()
+          .set('documento', documento)
+
+        return this.http.put<any>(this.url + `usuario/funcionario`, body, { params, headers })
       }
 
     // EP Autenticacao

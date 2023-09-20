@@ -6,10 +6,19 @@
         <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
         <h2>Funcionarios</h2>
       </div>
+      <div>
+        <div class="search">
+          <input [(ngModel)]="nome" placeholder="Nome">
+          <input [(ngModel)]="documento" placeholder="Documento">
+          <input [(ngModel)]="cargo" placeholder="Cargo">
+          <button (click)="getFuncionarios()">Pesquisar</button>
+        </div>
+      </div>
       <button type="button" routerLink="/admin/employee/create">
-        Adicionar funcionarios
+        Adicionar funcionários
       </button>
     </div>
+    
     <div class="data">
       <table>
         <tr>
@@ -29,12 +38,12 @@
           <td>{{ funcionario.tipoAutorizacao }}</td>
           <td>{{ funcionario.cargo }}</td>
           <td>
-            <button type="button">
+            <button type="button" (click)="editarFuncionario(funcionario.documento)">
               <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
             </button>
             <button type="button">
               <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}"
-                (click)="openDialog(funcionario.id)">restore_from_trash</mat-icon>
+                (click)="openDialog(funcionario.documento)">restore_from_trash</mat-icon>
             </button>
           </td>
         </tr>

@@ -31,7 +31,7 @@
             <img src="../../../assets/icons/cart.png" alt="icone de casa" title="casa" />
             <li>Produtos</li>
           </a>
-          <a [routerLink]="['/admin/logout']" [routerLinkActive]="'active'">
+          <a (click)="openLogoutConfirmationDialog()">
             <img src="../../../assets/icons/arrow_left.png" alt="icone de casa" title="casa" />
             <li>Sair</li>
           </a>

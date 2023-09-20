@@ -21,4 +21,8 @@ export class ConfirmDeleteMovieComponent {
   onNoClick(): void {
     this.dialogRef.close()
   }
+
+  confirmDelete(): void {
+    this.dialogRef.close('Ok');
+  }
 }

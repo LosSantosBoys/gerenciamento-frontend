@@ -43,6 +43,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'; 
 import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { EmployeeEditComponent } from './pages/admin/employee-edit/employee-edit.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false, // Desativa a validação automática
@@ -73,7 +74,8 @@ const maskConfig: Partial<IConfig> = {
     ConfirmDeleteMovieComponent,
     EmployeesComponent,
     EmployeeCreateComponent,
-    HasRoleDirective
+    HasRoleDirective,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,7 @@ const maskConfig: Partial<IConfig> = {
     MatButtonModule, 
     MatButtonToggleModule,
     NgxMaskModule.forRoot(maskConfig),
+    MatIconModule
     ],
   providers: [
     ApiService,

@@ -15,6 +15,7 @@ import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-
 import { AuthGuard } from './components/root-guard/auth-guard'
 import { LoggedInAuthGuard } from './components/root-guard/logged-auth-guard'
 import { LogoutConfirmationComponent } from './pages/logout-confirmation/logout-component'
+import { EmployeeEditComponent } from './pages/admin/employee-edit/employee-edit.component'
 
 const routes: Routes = [
   { 'path': 'login', component: LoginComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { 'path': 'admin/movie/create', component: MovieCreateComponent },
   { 'path': 'admin/employees', component: EmployeesComponent, canActivate: [AuthGuard] },
   { 'path': 'admin/employee/create', component: EmployeeCreateComponent, canActivate: [AuthGuard] },
+  { 'path': 'admin/employee/edit/:documento', component: EmployeeEditComponent, canActivate: [AuthGuard] },
   { 'path': 'admin', redirectTo: '/admin/login' },
   { 'path': '', component: HomePageComponent, }
 ];

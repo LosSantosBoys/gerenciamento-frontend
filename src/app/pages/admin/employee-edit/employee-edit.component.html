@@ -1,0 +1,80 @@
+<div class="container">
+    <app-aside-nav [status]="asideStatus" (closedAside)="handleCloseAside()"></app-aside-nav>
+    <main class="content">
+      <div class="header">
+        <div>
+          <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
+          <h2>Funcionários / Editar funcionário</h2>
+        </div>
+      </div>
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="flex">
+          <div class="input_group">
+            <label for="name">Nome *</label>
+            <input type="text" placeholder="Ex: Raul Andres" id="name" name="name" [(ngModel)]="funcionarioRequest.nome"/>
+          </div>
+            <div class="input_group">
+              <label for="username">Usuário</label>
+              <input type="text" placeholder="Ex: henrique123" id="username" name="username" [(ngModel)]="funcionario.username" readonly/>
+            </div>
+        </div>
+  
+        <div class="flex">
+          <div class="input_group">
+            <label for="cpf">CPF</label>
+            <input type="text" placeholder="Ex: 516.615.318-90" id="cpf" name="cpf" [(ngModel)]="funcionario.documento" mask="000.000.000-00" readonly/>
+          </div>
+          <div class="input_group">
+            <label for="email">E-mail</label>
+            <input type="email" placeholder="Ex: henrique.de.melo.crisioglu@gmail.com" id="email" name="email" [(ngModel)]="funcionario.email" readonly/>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="input_group">
+            <label for="salario">Salário *</label>
+            <input type="number" placeholder="2.500" id="salario" name="salario" [(ngModel)]="funcionarioRequest.salario" required min="0" />
+            <div *ngIf="form.control.hasError('required', 'salario') && form.submitted">
+              <p class="error-message">O campo Salário é obrigatório.</p>
+            </div>
+          </div>
+          <div class="input_group">
+            <label for="authorization">Autorização *</label>
+            <div class="select_group">
+              <select id="authorization" name="authorization" [(ngModel)]="funcionarioRequest.tipoAutorizacao">
+                <option value="ROLE_ADMIN">Admin</option>
+                <option value="ROLE_WRITE_READ">Leitura/escrita</option>
+                <option value="ROLE_WRITE">Escrita</option>
+                <option value="ROLE_READ">Leitura</option>
+              </select>
+              <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
+            </div>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="input_group">
+            <label for="role">Cargo *</label>
+            <input type="text" placeholder="Ex: Estagiário" id="role" name="cargo" [(ngModel)]="funcionarioRequest.cargo"/>
+          </div>      
+          <div class="input_group">
+            <label for="areaAtuacao">Área de Atuação</label>
+            <div class="select_group">
+              <select id="areaAtuacao" name="areaAtuacao" [(ngModel)]="funcionario.areaAtuacao" readonly>
+                <option value="RH">Recursos Humanos</option>
+                <option value="JURIDICO">Jurídico</option>
+                <option value="TI">Tecnologia da Informação</option>
+                <option value="MARKETING">Marketing</option>
+                <option value="COMUNICACAO">Comunicação</option>
+              </select>
+              <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
+            </div>
+          </div>
+        </div>
+  
+        <div class="actions">
+          <button type="button" routerLink="/admin/employees">Cancelar</button>
+          <button type="submit">Atualizar Funcionário</button>
+        </div>
+      </form>
+    </main>
+  </div>
+  

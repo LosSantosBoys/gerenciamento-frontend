@@ -4,6 +4,8 @@ import { ConfirmDeleteMovieComponent } from 'src/app/components/dialogs/confirm-
 import { ApiService } from 'src/app/service/api-service';
 import { FuncionarioResponse } from 'src/app/models/funcionario/funcionario-response';
 import { FuncionarioPage } from 'src/app/models/funcionario/funcionario-response-page';
+import { SnackbarService } from 'src/app/components/snackbar/snackbar';
+import { Router } from '@angular/router';
 
 
 export interface Funcionario {
@@ -25,6 +27,9 @@ export interface Funcionario {
 
 export class EmployeesComponent implements OnInit {
   asideStatus: boolean = false
+  nome: string = '';
+  documento: string = '';
+  cargo: string = '';
 
   funcionarios: FuncionarioPage = {
     content: [],
@@ -54,12 +59,14 @@ export class EmployeesComponent implements OnInit {
     numberOfElements: 0,
     empty: false
   };
-  pageSize = 10
+  pageSize = 5
   currentPage = 1
   totalPages = 0
 
   constructor(public dialog: MatDialog,
-    private apiService: ApiService) {
+    private apiService: ApiService,
+    private snackBarService: SnackbarService,
+    private router: Router) {
     this.asideStatus = false
   }
 
@@ -82,36 +89,63 @@ export class EmployeesComponent implements OnInit {
   }
   
   getFuncionarios(): void {
-    const nome = '';
-    const documento = '';
-    const cargo = '';
     const apiPage = this.currentPage - 1;
   
     this.apiService.buscarFuncionarios(
       apiPage,
       this.pageSize,
-      nome,
-      documento,
-      cargo
+      this.nome,
+      this.documento,
+      this.cargo
     ).subscribe(
       (data: FuncionarioPage) => {
-        this.funcionarios = data;
-        this.totalPages = data.totalPages;
+        const funcionariosAtivos = data.content.filter(funcionario => funcionario.status === 'ATIVO');
+  
+        this.funcionarios.content = funcionariosAtivos;
+        this.totalPages = Math.ceil(funcionariosAtivos.length / data.totalPages);
       },
       (error) => {
         console.error("Erro ao obter lista de funcionários:", error);
       }
     );
+  }  
+
+  inativarFuncionario(documento: string) {
+    this.documento = ''; 
+    
+    this.apiService.inativarFuncionario(documento).subscribe(
+      () => {
+        this.snackBarService.sucesso('Funcionário inativado com sucesso!');
+        this.getFuncionarios();
+      },
+      (error) => {
+        console.error("Erro ao inativar funcionário:", error);
+        
+        this.snackBarService.falha('Erro ao inativar funcionário. Tente novamente mais tarde.',)
+      }
+    );
   }
 
   // Dialog
-  openDialog(id: number): void {
-    this.dialog.open(ConfirmDeleteMovieComponent, {
+  openDialog(documento: string): void {
+    console.log(documento)
+    const dialogRef = this.dialog.open(ConfirmDeleteMovieComponent, {
       data: {
-        id,
+        documento,
         text: 'Funcionario'
       }
-    })
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'Ok') {
+        console.log(documento)
+        this.inativarFuncionario(documento);
+      }
+    });
+  }
+
+  editarFuncionario(documento: string) {
+    this.router.navigate(['/admin/employee/edit', documento]);
   }
 
   // Side Bar

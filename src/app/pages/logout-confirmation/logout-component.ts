@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'logout',
@@ -10,15 +9,13 @@ import { Location } from '@angular/common';
 
 export class LogoutConfirmationComponent {
 
-  constructor(private router: Router,
-    private location: Location) { }
+  constructor(public dialogRef: MatDialogRef<LogoutConfirmationComponent>) { }
 
   confirmLogout(): void {
-    localStorage.removeItem('currentUser');
-    this.router.navigate(['/admin/login']);
+    this.dialogRef.close(true);
   }
 
   cancelLogout(): void {
-    this.location.back();
+    this.dialogRef.close(false);
   }
 }
