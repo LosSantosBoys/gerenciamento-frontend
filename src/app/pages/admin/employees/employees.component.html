@@ -4,37 +4,46 @@
     <div class="header">
       <div>
         <app-btn-open-aside (openedAside)="handleOpenAside()"></app-btn-open-aside>
-        <h2>Filmes</h2>
+        <h2>Funcionarios</h2>
+      </div>
+      <div>
+        <div class="search">
+          <input [(ngModel)]="nome" placeholder="Nome">
+          <input [(ngModel)]="documento" placeholder="Documento">
+          <input [(ngModel)]="cargo" placeholder="Cargo">
+          <button (click)="getFuncionarios()">Pesquisar</button>
+        </div>
       </div>
       <button type="button" routerLink="/admin/employee/create">
-        Adicionar filme
+        Adicionar funcionários
       </button>
     </div>
+    
     <div class="data">
       <table>
         <tr>
           <th>#</th>
           <th>Nome</th>
           <th>Cpf</th>
-          <th>Telefone</th>
+          <th>Usuário</th>
           <th>Autorizacao</th>
           <th>Cargo</th>
           <th>Ações</th>
         </tr>
-        <tr *ngFor="let employee of displayedItems">
-          <td>{{ employee.id }}</td>
-          <td>{{ employee.nome }}</td>
-          <td>{{ employee.cpf }}</td>
-          <td>{{ employee.telefone }}</td>
-          <td>{{ employee.tipoAutorizacao }}</td>
-          <td>{{ employee.cargo }}</td>
+        <tr *ngFor="let funcionario of funcionarios.content">
+          <td>{{ funcionario.id }}</td>
+          <td>{{ funcionario.nome }}</td>
+          <td>{{ funcionario.documento }}</td>
+          <td>{{ funcionario.username }}</td>
+          <td>{{ funcionario.tipoAutorizacao }}</td>
+          <td>{{ funcionario.cargo }}</td>
           <td>
-            <button type="button">
+            <button type="button" (click)="editarFuncionario(funcionario.documento)">
               <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
             </button>
             <button type="button">
               <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}"
-                (click)="openDialog(employee.id)">restore_from_trash</mat-icon>
+                (click)="openDialog(funcionario.documento)">restore_from_trash</mat-icon>
             </button>
           </td>
         </tr>
@@ -44,6 +53,6 @@
       <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
       <p>{{ currentPage }} de {{ totalPages }}</p>
       <button (click)="nextPage()" [disabled]="currentPage === totalPages">Próxima</button>
-    </div>
+    </div>    
   </main>
 </div>

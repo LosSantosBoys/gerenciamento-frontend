@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './pages/user/auth/register/register.component';
@@ -26,7 +25,7 @@ import { AsideNavComponent } from './components/aside-nav/aside-nav.component';
 import { BtnOpenAsideComponent } from './components/btn-open-aside/btn-open-aside.component';
 import { MoviePageComponent } from './pages/user/movie-page/movie-page.component';
 import { ApiService } from './service/api-service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './components/safe-pipe/safe-pipe.component';
 import { SpecifySessionComponent } from './pages/admin/specify-session/specify-session.component';
 import { CardInfoSpecifyComponent } from './components/card-info-specify/card-info-specify.component';
@@ -38,6 +37,18 @@ import { EmployeesComponent } from './pages/admin/employees/employees.component'
 import { EmployeeCreateComponent } from './pages/admin/employee-create/employee-create.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarService } from './components/snackbar/snackbar';
+import { HttpLoggingInterceptor } from './components/utils/http-logging-interceptor';
+import { HasRoleDirective } from './components/has-role-directive/has-role-directive';
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+import { MatNativeDateModule } from '@angular/material/core'; 
+import { MatButtonToggleModule } from '@angular/material/button-toggle'; 
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { EmployeeEditComponent } from './pages/admin/employee-edit/employee-edit.component';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false, // Desativa a validação automática
+};
+
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
@@ -66,6 +77,8 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
     ConfirmDeleteMovieComponent,
     EmployeesComponent,
     EmployeeCreateComponent,
+    HasRoleDirective,
+    EmployeeEditComponent,
     DashboardComponent,
     MovieItemComponent
   ],
@@ -84,11 +97,25 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    NgApexchartsModule
-  ],
+    NgApexchartsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule, 
+    MatInputModule, 
+    MatDialogModule, 
+    MatButtonModule, 
+    MatButtonToggleModule,
+    NgxMaskModule.forRoot(maskConfig),
+    MatIconModule
+    ],
   providers: [
     ApiService,
-    SnackbarService
+    SnackbarService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpLoggingInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })

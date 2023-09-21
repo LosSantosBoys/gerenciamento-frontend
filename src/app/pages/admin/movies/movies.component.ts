@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { ConfirmDeleteMovieComponent } from '../../../components/dialogs/confirm-delete-movie/confirm-delete-movie.component'
 import { FilmeResponse } from 'src/app/models/filme/filme-response'
 import { ApiService } from 'src/app/service/api-service'
+import { AuthGuard } from 'src/app/components/root-guard/auth-guard'
 
 interface Movie {
   id: number
@@ -31,7 +32,8 @@ export class MoviesComponent implements OnInit{
   searchMovie: string = ''
 
   constructor(public dialog: MatDialog, 
-    private apiService: ApiService) {
+    private apiService: ApiService,
+    private authGuard: AuthGuard) {
     this.asideStatus = false
     this.movies = this.generateMovies()
     this.totalPages = Math.ceil(this.movies.length / this.pageSize)
