@@ -40,7 +40,7 @@ export class LoginAdminComponent {
         },
         complete: () => {
           this.snackbarService.sucesso("Login efetuado com sucesso!");
-          this.router.navigate(['admin/movies']);
+          this.router.navigate(['admin/dashboard']);
         }
       });
     }

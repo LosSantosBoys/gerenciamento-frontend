@@ -28,11 +28,11 @@ const routes: Routes = [
   { 'path': 'admin/sessions', component: SessionsComponent },
   { 'path': 'admin/session/:id', component: SpecifySessionComponent },
   { 'path': 'admin/movies', component: MoviesComponent, canActivate: [AuthGuard] },
-  { 'path': 'admin/movie/create', component: MovieCreateComponent },
+  { 'path': 'admin/movie/create', component: MovieCreateComponent, canActivate: [AuthGuard] },
   { 'path': 'admin/employees', component: EmployeesComponent, canActivate: [AuthGuard] },
   { 'path': 'admin/employee/create', component: EmployeeCreateComponent, canActivate: [AuthGuard] },
   { 'path': 'admin/employee/edit/:documento', component: EmployeeEditComponent, canActivate: [AuthGuard] },
-  { 'path': 'admin/dashboard', component: DashboardComponent },
+  { 'path': 'admin/dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { 'path': 'admin', redirectTo: '/admin/login' },
   { 'path': '', component: HomePageComponent, }
 ];

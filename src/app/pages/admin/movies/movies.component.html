@@ -18,15 +18,18 @@
       <table>
         <tr>
           <th>#</th>
-          <th>Nome</th>
-          <th>Produtora</th>
+          <th>Poster</th> <!-- Adicionada a coluna para a URL da imagem -->
+          <th>Título</th>
+          <th>Descrição</th>
           <th>Status</th>
           <th>Duração</th>
           <th>Ações</th>
         </tr>
         <tr *ngFor="let filme of filmes">
           <td>{{ filme.id }}</td>
+          <img src="{{ filme.urlImagem.url }}" alt="Poster do Filme" width="150" height="150">
           <td>{{ filme.titulo }}</td> 
+          <td>{{ filme.genero }}</td>
           <td>{{ filme.descricao }}</td> 
           <td>{{ filme.emCartaz ? 'Em cartaz' : 'Fora de cartaz' }}</td> 
           <td>{{ filme.duracao }}</td>
