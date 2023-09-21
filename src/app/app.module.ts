@@ -52,6 +52,7 @@ const maskConfig: Partial<IConfig> = {
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import { AddPhotoDialogComponent } from './pages/admin/add-photo-dialog/add-photo-dialog';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
     HasRoleDirective,
     EmployeeEditComponent,
     DashboardComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    AddPhotoDialogComponent
   ],
   imports: [
     BrowserModule,

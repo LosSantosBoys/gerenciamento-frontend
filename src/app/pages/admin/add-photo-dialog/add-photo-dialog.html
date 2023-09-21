@@ -1,0 +1,12 @@
+<div class="add-image-container">
+  <h1>Adicionar Imagem de Capa 650x650</h1>
+  <div class="image-upload">
+    <label for="capaImage" class="upload-label">
+      <div class="upload-preview" [style.background-image]="'url(' + selectedCapaImage + ')'">
+        <img *ngIf="!selectedCapaImage" alt="Preview" src="../../../../assets/icons/plus.png" />
+      </div>
+      <input type="file" id="capaImage" (change)="onCapaImageSelected($event)" accept="image/*" />
+    </label>
+  </div>
+  <button class="add-button" (click)="adicionarCapa()">Adicionar Capa</button>
+</div>

@@ -83,11 +83,23 @@ export class ApiService {
     // EP Filmes
 
     getAllMovie(): Observable<any> {
-        return this.http.get<any>(this.url + 'filmes');
+      const headers = this.authService.getToken();
+      return this.http.get<any>(this.url + 'filmes', { headers });
     }
 
     addMovie(body: FilmeRequest): Observable<any> {
-        return this.http.post<any>(this.url + 'filmes', body);
+      const headers = this.authService.getToken();
+      return this.http.post<any>(this.url + 'filmes', body, { headers });
+    }
+
+    adicionarFoto(filmeId: number, imagem: File, nomeArquivo: string): Observable<any> {
+      const formData = new FormData();
+      formData.append('imagem', imagem);
+      formData.append('nomeArquivo', nomeArquivo);
+  
+      const headers = this.authService.getToken();
+  
+      return this.http.put<any>(this.url + `filmes/foto/${filmeId}`, formData, { headers });
     }
 
     getMovie(title: string): Observable<any> {

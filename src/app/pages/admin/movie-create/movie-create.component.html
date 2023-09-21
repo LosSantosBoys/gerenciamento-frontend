@@ -8,7 +8,7 @@
       </div>
     </div>
     <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-      <div class="upload-container">
+      <!-- <div class="upload-container">
         <label for="bannerImage" class="upload-label">
           <div class="upload-preview" [style.background-image]="'url(' + selectedBannerImage + ')'">
             <img *ngIf="!selectedBannerImage" alt="Preview" src="../../../../assets/icons/plus.png" />
@@ -21,10 +21,26 @@
           </div>
           <input type="file" id="posterImage" (change)="onPosterImageSelected($event)" />
         </label>
+      </div> -->
+      <div class="flex">
+      <div class="input_group">
+        <label for="name">Título</label>
+        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="filme.titulo" required/>
       </div>
       <div class="input_group">
-        <label for="name">Nome</label>
-        <input type="text" placeholder="Ex: O rei do show" id="name" name="title" [(ngModel)]="filme.titulo" required/>
+        <label for="classification">Gênero</label>
+        <div class="select_group">
+          <select id="genero" name="genero" [(ngModel)]="filme.genero">
+            <option value="COMEDIA">Comédia</option>
+            <option value="ACAO">Ação</option>
+            <option value="DRAMA">Drama</option>
+            <option value="AVENTURA">Aventura</option>
+            <option value="ROMANCE">Romance</option>
+            <option value="TERROR">Terror</option>
+          </select>
+          <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
+        </div>
+      </div>
       </div>
       <div class="flex">
         <div class="input_group">
@@ -41,20 +57,16 @@
           </div>
         </div>
         <div class="input_group">
-          <label for="gender">Gênero</label>
-          <input type="text" placeholder="Ex: Comédia, Drama" id="gender" name="genero" />
-        </div>
-        <div class="input_group">
           <label for="duracao">Duração</label>
-          <input type="text" placeholder="Ex: 00:00" id="duracao" name="duracao" [(ngModel)]="filme.duracao" />
+          <input type="text" placeholder="Ex: 00:00" id="duracao" name="duracao" [(ngModel)]="filme.duracao"/>
         </div>
       </div>
       <div class="flex">
-        <div class="input_group">
+        <!-- <div class="input_group">
           <label for="link">Link do trailer</label>
           <input type="text" placeholder="Ex: https://www.youtube.com" id="link" />
-        </div>
-        <div class="input_group">
+        </div> -->
+        <!-- <div class="input_group">
           <label for="gender">Adicionar filme em</label>
           <div class="select_group">
             <select id="classification">
@@ -66,7 +78,7 @@
             </select>
             <img src="../../../../assets/icons/arrow_down.png" alt="seta para baixo branca" title="seta para baixo" />
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="input_group">
         <label for="description">Descrição</label>

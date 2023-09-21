@@ -3,6 +3,10 @@ import { FilmeRequest } from 'src/app/models/filme/filme-model';
 import { ApiService } from 'src/app/service/api-service';
 import { SnackbarService } from 'src/app/components/snackbar/snackbar';
 import { NgForm } from '@angular/forms'; 
+import { Router } from '@angular/router';
+import { AddPhotoDialogComponent } from '../add-photo-dialog/add-photo-dialog';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-movie-create',
@@ -17,6 +21,7 @@ export class MovieCreateComponent {
 
   filme: FilmeRequest = {
     titulo: '',
+    genero: '',
     descricao: '',
     duracao: '',
     classificacaoIndicativa: '',
@@ -25,19 +30,39 @@ export class MovieCreateComponent {
   constructor(
     private apiService: ApiService,
     private snackbarService: SnackbarService,
+    private router: Router,
+    private dialog: MatDialog
     ) {
     this.asideStatus = false
   }
 
   onSubmit(form: NgForm): void {
     if (form.valid) {
-      this.apiService.addMovie(this.filme).subscribe({
-        error: (error) => this.snackbarService.falha("Erro"),
-        complete: () => this.snackbarService.sucesso("Cadastrado")
-      });
-    } else {
+      this.apiService.addMovie(this.filme).subscribe((data: number) => {
+        this.snackbarService.sucesso("Cadastrado com sucesso!");
+        setTimeout(() => {
+          this.openAddPhotoDialog(data);
+        }, 1000);      },
+      (error) => {
+            this.snackbarService.falha("Falha ao cadastrar item.");
+    })} else {
       this.snackbarService.falha("Preencha todos os campos obrigatórios.");
     }
+  }
+
+  openAddPhotoDialog(filmeId: number): void {
+    const dialogRef = this.dialog.open(AddPhotoDialogComponent, {
+      data: { filmeId }
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'success') {
+        this.snackbarService.sucesso("Foto adicionada com sucesso!");
+        this.router.navigate(['/admin/movies']);
+      } else {
+        this.snackbarService.falha("Adição de foto cancelada.");
+      }
+    });
   }
 
   isFormValid(): boolean {
