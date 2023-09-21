@@ -1,3 +1,18 @@
+# É necessário possuir JDK 17, mySQL e NodeJs instalados.
+
+git clone https://github.com/LosSantosBoys/gerenciamento-api.git
+Crie um schema com o nome "db_cineapi" no mySQL e ajustar na api o arquivo "application.properties" com user e senha do usuário do mySQL.
+Executar a api (localhost:8080 por padrão)
+git clone https://github.com/LosSantosBoys/gerenciamento-frontend.git (site)
+No diretório principal do projeto, executar npm i no terminal (npm i --force se necessário)
+Depois de finalizar a instalação dos pacotes, execute ng serve
+Se a execução for sucesso, o site estará na porta:
+localhost:4200 (http://localhost:4200/admin/login)
+api (swagger) - localhost:8080/swagger-ui/index.html#/
+O usuário "zero" para login é:
+usuário: fiap
+senha: 123456
+
 # Web
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
