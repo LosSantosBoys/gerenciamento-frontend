@@ -82,9 +82,13 @@ export class ApiService {
 
     // EP Filmes
 
-    getAllMovie(): Observable<any> {
+    getAllMovie(page: number, pageSize: number): Observable<any> {
+      let params = new HttpParams()
+      .set('pagina', page.toString())
+      .set('tamanhoPagina', pageSize.toString());
+
       const headers = this.authService.getToken();
-      return this.http.get<any>(this.url + 'filmes', { headers });
+      return this.http.get<any>(this.url + 'filmes', { headers, params });
     }
 
     addMovie(body: FilmeRequest): Observable<any> {

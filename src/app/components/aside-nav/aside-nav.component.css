@@ -162,6 +162,10 @@ aside .flex .admin_profile .info .username {
   margin-top: 3px;
 }
 
+.click{
+  cursor: pointer;
+}
+
 /* MOBILE */
 @media(max-width: 800px) {
 
