@@ -4,6 +4,7 @@ import { ConfirmDeleteMovieComponent } from '../../../components/dialogs/confirm
 import { FilmeResponse } from 'src/app/models/filme/filme-response'
 import { ApiService } from 'src/app/service/api-service'
 import { AuthGuard } from 'src/app/components/root-guard/auth-guard'
+import { FilmePage } from 'src/app/models/filme/filme-response-page'
 
 interface Movie {
   id: number
@@ -20,14 +21,47 @@ interface Movie {
 })
 
 export class MoviesComponent implements OnInit{
-  filmes: FilmeResponse[] = [];
-  asideStatus: boolean = false
+  filmes: FilmePage = {
+    content: [],
+    pageable: {
+      sort: {
+        empty: true,
+        sorted: false,
+        unsorted: true
+      },
+      offset: 0,
+      pageNumber: 0,
+      pageSize: 0,
+      paged: false,
+      unpaged: false
+    },
+    last: false,
+    totalPages: 0,
+    totalElements: 0,
+    size: 0,
+    number: 0,
+    sort: {
+      empty: true,
+      sorted: false,
+      unsorted: true
+    },
+    first: false,
+    numberOfElements: 0,
+    empty: false
+  };  asideStatus: boolean = false
 
   movies: Movie[] = []
   displayedItems: Movie[] = []
-  pageSize = 10
+  pageSize = 8
   currentPage = 1
   totalPages = 0
+  classificacaoIndicativaImagens: { [key: string]: string } = {
+    L: '../../../../../../assets/images/L.png',
+    '10': '../../../../../../assets/images/10.png',
+    '12': '../../../../../../assets/images/12.png',
+    '16': '../../../../../../assets/images/16.png',
+    '18': '../../../../../../assets/images/18.png',
+  };
 
   searchMovie: string = ''
 
@@ -45,14 +79,25 @@ export class MoviesComponent implements OnInit{
   }
 
   getAllMovies(): void{
-    this.apiService.getAllMovie().subscribe(
-      (data) => {
-        this.filmes = data;
+    const apiPage = this.currentPage - 1;
+
+    this.apiService.getAllMovie(apiPage, this.pageSize).subscribe(
+      (data: FilmePage) => {
+        if (data) {
+          this.filmes.content = data.content;
+          this.totalPages = data.totalPages;
+        } else {
+          this.totalPages = 1;
+        }
       },
       (error) => {
         console.error("Erro ao obter lista de filmes:", error)
       }
     )
+  }
+
+  getImagemClassificacao(classificacao: string): string {
+    return this.classificacaoIndicativaImagens[classificacao];
   }
 
   // Dialog
@@ -88,14 +133,14 @@ export class MoviesComponent implements OnInit{
   previousPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.updateDisplayedItems();
+      this.getAllMovies();
     }
-  }
-
+  }  
+  
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.updateDisplayedItems();
+      this.getAllMovies();
     }
   }
 

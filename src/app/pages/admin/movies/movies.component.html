@@ -15,36 +15,22 @@
       <input type="text" placeholder="Pesquisa" [(ngModel)]="searchMovie" (input)="filterItems()">
     </div>
     <div class="data">
-      <table>
-        <tr>
-          <th>#</th>
-          <th>Poster</th> <!-- Adicionada a coluna para a URL da imagem -->
-          <th>Título</th>
-          <th>Gênero</th>
-          <th>Descrição</th>
-          <th>Status</th>
-          <th>Duração</th>
-          <th>Ações</th>
-        </tr>
-        <tr *ngFor="let filme of filmes">
-          <td>{{ filme.id }}</td>
-          <img src="{{ filme.urlImagem.url }}" alt="Poster do Filme" width="150" height="150">
-          <td>{{ filme.titulo }}</td> 
-          <td>{{ filme.genero }}</td>
-          <td>{{ filme.descricao }}</td> 
-          <td>{{ filme.emCartaz ? 'Em cartaz' : 'Fora de cartaz' }}</td> 
-          <td>{{ filme.duracao }}</td>
-          <td>
-            <button type="button">
-              <mat-icon [ngStyle]="{'color': 'var(--green)'}">edit</mat-icon>
-            </button>
-            <button type="button">
-              <mat-icon [ngStyle]="{'color': 'var(--principal_red)'}"
-                (click)="openDialog(filme.id)">restore_from_trash</mat-icon>
-            </button>
-          </td>
-        </tr>
-      </table>
+      <div class="movie-grid">
+        <div class="centered-movies">
+          <div class="movie" *ngFor="let filme of filmes.content">
+            <div class="movie-poster">
+              <img src="{{ filme.urlImagem?.url || '../../../../../../assets/images/black-screen.png' }}" alt="Poster do Filme">
+            </div>
+            <div class="movie-details">
+              <h3>{{ filme.titulo }}</h3>
+              <p>{{ filme.genero }}</p>
+              <img [src]="getImagemClassificacao(filme.classificacaoIndicativa)" alt="Classificação Indicativa" class="classificacao-indicativa">
+              <p>{{ filme.emCartaz ? 'Em cartaz' : 'Fora de cartaz' }}</p>
+              <p>{{ filme.duracao }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="pagination">
       <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
