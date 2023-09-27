@@ -23,7 +23,7 @@ export class SessionsComponent {
     for (let i = 0; i < total; i++) {
       sessions[i] = {
         id: `Session: ${i + 1}`,
-        title: `Sessão ${i + 1}-${total}`,
+        title: `Percy Jackson`,
         room: i + 1
       }
     }
